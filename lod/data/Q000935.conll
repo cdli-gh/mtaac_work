@@ -1,0 +1,27 @@
+# project: etcsri 
+# textid: Q000935 
+# file: 00atf/ETCSRI_RIME3_2.atf 
+# langs: sux 
+# type: text 
+# xml:id: Q000935.U0 
+# bracketing_level: 0 
+# m/@k=genre : Royal Inscription 
+# m/@k=period : Ur III 
+
+# ID	WORD	BASE	CF	EPOS	FORM	GW	LANG	MORPH	MORPH2	NORM	POS	SENSE
+
+# Q000935.1
+1	ur-{d}namma	ur-{d}namma	Urnammak	RN	ur-{d}namma	1	sux	N1=Urnammak	N1=NAME	Urnammak	RN	1st king of the 3rd dynasty of Urim
+
+# Q000935.2
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king
+2	urim₅{ki}-ma	urim₅{ki}	Urim	SN	urim₅{ki}-ma	1	sux	N1=Urim.N5=ak	N1=NAME.N5=GEN	Urim.ak	SN	1
+
+# Q000935.3
+1	lu₂	lu₂	lu	N	lu₂	person	sux	N1=lu	N1=STEM	lu	N	person
+2	e₂	e₂	e	N	e₂	house	sux	N1=e	N1=STEM	e	N	house, temple
+3	{d}nanna	{d}nanna	Nanna	DN	{d}nanna\gen\abs	1	sux	N1=Nanna.N5=ak.N5=ø	N1=NAME.N5=GEN.N5=ABS	Nanna.ak.ø	DN	1
+
+# Q000935.4
+1	in-du₃-a	du₃	du	V/t	in-du₃-a\abs	build	sux	V2=i.V11=n.V12=du.V14=ø.V15='a.N5=ø	V2=FIN.V11=3-SG-H-A.V12=STEM.V14=3-SG-P.V15=SUB.N5=ABS	i.n.du.ø.'a.ø	V/t	to build
+
