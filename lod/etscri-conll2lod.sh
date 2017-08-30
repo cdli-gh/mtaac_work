@@ -39,13 +39,13 @@ for file in $HOME/data/*.conll; do
 	if echo $* | grep 'debug' >/dev/null; then				# DEBUG: filter content to be shown
 		$HOME/linker/run.sh CoNLLRDFUpdater \
 			-custom http://example.org \
-			-updates $SYSTEM_HOME/linker/slim-etscri.sparql;
-	else cat;
-	fi | \
-	$HOME/linker/run.sh CoNLLRDFFormatter $* 2>&1 | \
-	if echo $* | grep 'debug' >/dev/null; then				# DEBUG: treat epsd like a namespace
-		sed -e s/'<http:..psd.museum.upenn.edu.epsd.epsd.\([^>]*\)>'/'epsd:\1'/g;
+			-updates $SYSTEM_HOME/linker/slim-etscri.sparql |\
+		$HOME/linker/run.sh CoNLLRDFFormatter $* 2>&1 | \
+															# DEBUG: treat epsd like a namespace, remove prefixes
+		sed -e s/'<http:..psd.museum.upenn.edu.epsd.epsd.\([^>]*\)>'/'epsd:\1'/g | \
+		grep -v -i '@prefix' | \
+		grep -v '^SLF4J';
 	else
-		cat
+		$HOME/linker/run.sh CoNLLRDFFormatter $* 2>&1;
 	fi;
 done;

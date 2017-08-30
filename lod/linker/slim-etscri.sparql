@@ -9,7 +9,7 @@ DELETE { ?a conll:EPOS ?b } WHERE { ?a conll:EPOS ?b };
 DELETE { ?a conll:GW ?b } WHERE { ?a conll:GW ?b };
 DELETE { ?a conll:FORM ?b } WHERE { ?a conll:FORM ?b };
 DELETE { ?a conll:LANG ?b } WHERE { ?a conll:LANG ?b };
-DELETE { ?a conll:BASE ?b } WHERE { ?a conll:BASE ?b };
+#DELETE { ?a conll:BASE ?b } WHERE { ?a conll:BASE ?b };
 DELETE {
 	?a conll:MORPH2 ?morph
 } INSERT {
