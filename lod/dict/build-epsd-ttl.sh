@@ -1,7 +1,8 @@
 #!/bin/bash
 # we build a partial lemon model for the ePSD
 
-TARGET=epsd.ttl;
+HOME=`echo $0 | sed s/'[^\/]*$'//`.;
+TARGET=$HOME/epsd.ttl;
 
 if [ -e $TARGET ] ; then
 	echo found $TARGET, skipping dictionary conversion 1>&2
