@@ -28,11 +28,11 @@ else
 		sed -e s/'<span class="wr"'/'\n&'/g \
 			-e s/'<h3'/'\n&'/g \
 			-e s/'<sup>'/'{'/g -e s/'<\/sup>'/'}'/g -e s/'([^()]*)'//g -e s/'|[^|]*|'//g \
-			-e s/'&#x11C;'/'J'/g \
-			-e s/'&#x11D;'/'j'/g \
-			-e s/'&#x160;'/'SZ'/g \
-			-e s/'&#x161;'/'sz'/g \
-			-e s/'&#xD7;'/'-'/g | \
+			-e s/'&#x11C;'/'Ĝ'/g \
+			-e s/'&#x11D;'/'ĝ'/g \
+			-e s/'&#x160;'/'Š'/g \
+			-e s/'&#x161;'/'š'/g \
+			-e s/'&#xD7;'/'×'/g | \
 		egrep '.' | sort -u | \
 		perl -e '
 			print "epsd:e'$i' a ontolex:LexicalEntry; rdfs:isDefinedBy <'$EPSD/e$i.html'>";
@@ -42,10 +42,12 @@ else
 					while(m/<[^>]*>/) {
 						s/<[^>]*>//;
 					};
-					$my=$_;
-					print ";\n ontolex:lexicalForm [ a ontolex:Form; ontolex:writtenRep \"";
-					print $my;
-					print "\"\@sux ]";
+					if(m/[a-zA-Z]/) {
+						$my=$_;
+						print ";\n ontolex:lexicalForm [ a ontolex:Form; ontolex:writtenRep \"";
+						print $my;
+						print "\"\@sux ]";
+					}
 				}
 				if(m/^<h3/) {
 					s/<[\/]?h3[^>]*>//g;
@@ -54,10 +56,13 @@ else
 					};
 					s/^[ \t]+//;
 					s/[ \t]+$//;
-					$my=$_;
-					print ";\n ontolex:sense [ a ontolex:LexicalSense; skos:definition \"";
-					print $my;
-					print "\"@en ]";
+					s/"/\\"/g;
+					if(m/[a-zA-Z]/) {
+						$my=$_;
+						print ";\n ontolex:sense [ a ontolex:LexicalSense; skos:definition \"";
+						print $my;
+						print "\"\@en ]";
+					}
 				}
 			}
 			print " .\n";

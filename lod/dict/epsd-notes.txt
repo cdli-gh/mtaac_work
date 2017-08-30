@@ -1,0 +1,1 @@
+Note that the generated epsd.ttl file is *not* a copy nor an excerpt from the ePSD, but only a machine-readable index for the ePSD: Its entries only serve to identify and to refer to ePSD sites as the source of authoritative information (this is the exact meaning of rdfs:isDefinedBy), it does neither provide full ePSD information nor additional information.
