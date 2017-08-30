@@ -1,0 +1,299 @@
+# use the ePSD headwords to create links to the search interface
+# this is necessary because we don't disambiguate
+
+# PRE: ePSD dictionary to be loaded into the graph <http://psd.museum.upenn.edu/epsd/epsd>
+# PRE: conll:BASE for Sumerian "lemmata" (bases)
+
+PREFIX nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
+PREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>
+PREFIX lime: <http://www.w3.org/ns/lemon/lime#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+# PREFIX lexlink: <http://purl.org/acoli/lexical-links#> # this doesn't exist (yet)
+PREFIX lexlink: <http://purl.org/acoli/open-ie/> # for visualization only (-debug): reuse the term namespace
+
+#################################
+# representing dictionary links #
+# (informational)               #
+#################################
+
+# lexlink:sameFormAs a owl:ObjectProperty; rdfs:domain nif:Word; rdfs:range ontolex:LexicalForm.
+# # this differs from string match in that it can be limited to cases where grammatical features match
+
+# lexlink:sameBaseAs a owl:ObjectProperty; rdfs:domain nif:Word; rdfs:range ontolex:LexicalEntry.
+# # if the canonical form of the ontolex:LexicalEntry is identical to the conll:LEMMA, no disambiguation required
+
+# lexlink:lemma a owl:ObjectProperty; rdfs:domain nif:Word; rdfs:range ontolex:LexicalEntry.
+# # this should be used for disambiguated links to lexical entries in a dictionary
+
+# lexlink:sense a owl:ObjectProperty; rdfs:domain nif:Word; rdfs:range ontolex:LexicalSense.
+# # this should be used for disambiguated senses
+
+# # we define a preference: linking with sense over linking with lemma over linking with sameBaseAs over linking with sameFormAs
+# # lexlink:sameFormAs requires string matching, disambiguation is optional (filtering by grammatical features is recommended)
+# # lexlink:sameBaseAs requires lemmatization, but disambiguation optional (filtering by grammatical features is recommended)
+# # lexlink:lemma requires homonymy resolution, i.e., at most one link per word and dictionary
+# # lexlink:sense requires full word sense disambiguation, i.e., at most one link per word and dictionary
+
+# # also, we define properties for linking-specific string representations
+# lexlink:formVariant a owl:DatatypeProperty; rdfs:domain nif:Word.
+# lexlink:baseVariant a owl:DatatypeProperty; rdfs:domain nif:Word.
+
+# # note that this is designed to work with the CoNLLStreamExtraction
+# # however, it may generate same blank node ids for different forms in independent sentences
+# # accordingly, we can generate list notation if we have an inverse property for ontolex:lexicalForm
+# # hence, we introduce lexlink:formOf
+# lexlink:formOf a owl:ObjectProperty; owl:inverseOf ontolex:lexicalForm.
+
+#####################################
+# preprocessing                     #
+# setup formVariant and baseVariant #
+#####################################
+
+# initialize
+INSERT {
+	?a lexlink:formVariant ?b.			# exchange this for debugging (see below)
+	# ?a lexlink:formVariant "hab"@sux. 		# for debugging: multiple lemmas for the same form
+	# ?a lexlink:formVariant "lugal"@sux.		# for debugging: unique lemma with multiple senses
+	# ?a lexlink:formVariant "hu-ub"@sux.		# for debugging: unique lemma with unique sense
+} WHERE {
+	?a conll:WORD ?b.
+};
+
+INSERT {
+	?a lexlink:baseVariant ?b.
+} WHERE {
+	?a conll:BASE ?b.
+};
+
+INSERT {
+	?a lexlink:baseVariant ?b.
+} WHERE {
+	?a conll:LEMMA ?b.
+};
+
+# fix ETCSRI vs. ePSD encoding
+DELETE {
+	?a lexlink:formVariant ?old.
+} INSERT {
+	?a lexlink:formVariant ?new.
+} WHERE {
+	?a lexlink:formVariant ?old.
+	BIND(replace(replace(replace(replace(replace(
+	     replace(replace(replace(replace(replace(
+		 replace(
+			?old,
+			'₀','0'),
+			'₁','1'),
+			'₂','2'),
+			'₃','3'),
+			'₄','4'),
+			'₅','5'),
+			'₆','6'),
+			'₇','7'),
+			'₈','8'),
+			'₉','9'),
+			'ₓ','x')
+		AS ?new)
+	FILTER(?new != ?old)
+};
+
+DELETE {
+	?a lexlink:baseVariant ?old.
+} INSERT {
+	?a lexlink:baseVariant ?new.
+} WHERE {
+	?a lexlink:baseVariant ?old.
+	BIND(replace(replace(replace(replace(replace(
+	     replace(replace(replace(replace(replace(
+		 replace(
+			?old,
+			'₀','0'),
+			'₁','1'),
+			'₂','2'),
+			'₃','3'),
+			'₄','4'),
+			'₅','5'),
+			'₆','6'),
+			'₇','7'),
+			'₈','8'),
+			'₉','9'),
+			'ₓ','x')
+		AS ?new)
+	FILTER(?new != ?old)
+};
+
+
+# set language encoding to the encoding in the dictionary (here: Sumerian)
+DELETE {
+	?a lexlink:formVariant ?untyped.
+} INSERT {
+	?a lexlink:formVariant ?dictString.
+} WHERE {
+	?a lexlink:formVariant ?untyped.
+	FILTER(LANG(?untyped) = "")
+	BIND(strlang(str(?untyped),"sux") AS ?dictString)
+};
+
+DELETE {
+	?a lexlink:baseVariant ?untyped.
+} INSERT {
+	?a lexlink:baseVariant ?dictString.
+} WHERE {
+	?a lexlink:baseVariant ?untyped.
+	FILTER(LANG(?untyped) = "")
+	BIND(strlang(str(?untyped),"sux") AS ?dictString)
+};
+
+
+################################################
+# lexlink:sameFormAs, resp. lexlink:sameBaseAs #
+################################################
+
+INSERT {
+	?word lexlink:sameBaseAs ?lex.
+} WHERE {
+	?word lexlink:baseVariant ?string.
+	GRAPH <http://psd.museum.upenn.edu/epsd/epsd> {
+		{ ?lex ontolex:lexicalForm/ontolex:writtenRep ?string 			# we require matching with canonicalForm (but only if defined)
+		  FILTER(NOT EXISTS { ?lex ontolex:canonicalForm [] }) 			# if canonical forms are given, this is thus stronger than lexlink:sameFormAs
+		} UNION {
+		  ?lex ontolex:canonicalForm/ontolex:writtenRep ?string 
+		}
+	}
+};
+
+INSERT {
+	?word lexlink:sameFormAs ?form.
+	?form lexlink:formOf ?lex.
+} WHERE {
+	?word lexlink:formVariant ?corpusString.
+	FILTER(NOT EXISTS { ?word lexlink:sameBaseAs [] })
+	BIND(strlang(str(?corpusString),"sux") AS ?dictString)
+	GRAPH <http://psd.museum.upenn.edu/epsd/epsd> {
+		?form ontolex:writtenRep ?dictString.
+		FILTER(!ISBLANK(?form))
+		OPTIONAL { ?lex ontolex:lexicalForm ?form }
+	}
+};
+
+# for blank nodes
+INSERT {
+	?word lexlink:sameFormAs [ lexlink:formOf ?lex ].
+} WHERE {
+	?word lexlink:formVariant ?corpusString.
+	FILTER(NOT EXISTS { ?word lexlink:sameBaseAs [] })
+	BIND(strlang(str(?corpusString),"sux") AS ?dictString)
+	GRAPH <http://psd.museum.upenn.edu/epsd/epsd> {
+		?form ontolex:writtenRep ?dictString.
+		FILTER(ISBLANK(?form))
+		OPTIONAL { ?lex ontolex:lexicalForm ?form }
+	}
+};
+
+###################################
+# disambiguate form-based linking #
+###################################
+# using morphological features, none available in ePSD, though ...
+
+#######################################
+# upgrade unambiguous lexeme linkings #
+# remove superseded links             #
+#######################################
+DELETE {
+	?word lexlink:sameFormAs ?form.
+	?form lexlink:formOf ?lex.
+} INSERT {
+	?word lexlink:lemma ?lex.
+} WHERE {
+	?word lexlink:sameFormAs ?form.
+	FILTER(NOT EXISTS{ ?word lexlink:sameFormAs ?form2. FILTER(?form != ?form2) })
+	?form lexlink:formOf ?lex.
+	FILTER(NOT EXISTS { ?word lexlink:sameBaseAs ?lex2. FILTER(?lex != ?lex2) })
+};
+
+DELETE {
+	?word lexlink:sameBaseAs ?lex
+} INSERT {
+	?word lexlink:lemma ?lex.
+} WHERE {
+	?word lexlink:sameBaseAs ?lex.
+	FILTER(NOT EXISTS { ?word lexlink:sameBaseAs ?lex2. FILTER(?lex != ?lex2) })
+};
+
+# for referrable senses: provide a reference to them
+DELETE {
+	?word lexlink:lemma ?lex.
+} INSERT {
+	?word lexlink:sense ?sense.
+	?sense ontolex:isSenseOf ?lex.
+} WHERE {
+	?word lexlink:lemma ?lex.
+	FILTER(NOT EXISTS { ?word lexlink:lemma ?lex2. FILTER(?lex2 != ?lex) })
+	GRAPH <http://psd.museum.upenn.edu/epsd/epsd> {
+		?lex ontolex:sense ?sense.
+		FILTER(NOT EXISTS { ?lex ontolex:sense ?sense2. FILTER (?sense != ?sense2) })
+		FILTER(!ISBLANK(?sense))
+	}
+};
+
+# for non-referrablke senses: create a new blank node
+DELETE {
+	?word lexlink:lemma ?lex.
+} INSERT {
+	?word lexlink:sense [ ontolex:isSenseOf ?lex ; skos:definition ?def; rdfs:label ?label; skos:prefLabel ?plabel ].
+} WHERE {
+	?word lexlink:lemma ?lex.
+	FILTER(NOT EXISTS { ?word lexlink:lemma ?lex2. FILTER(?lex2 != ?lex) })
+	GRAPH <http://psd.museum.upenn.edu/epsd/epsd> {
+		?lex ontolex:sense ?sense.
+		FILTER(NOT EXISTS { ?lex ontolex:sense ?sense2. FILTER (?sense != ?sense2) })
+		OPTIONAL { ?sense skos:definition ?def }
+		OPTIONAL { ?sense rdfs:label ?label }
+		OPTIONAL { ?sense skos:prefLabel ?plabel }
+	}
+};
+
+########################################
+# remove lexlink:formOf for non-blanks #
+########################################
+
+DELETE {
+	?form lexlink:formOf ?b
+} WHERE {
+	?form lexlink:formOf ?b
+	FILTER(!ISBLANK(?form))
+};
+
+################################
+# remove orphaned LexicalForms #
+################################
+
+DELETE {
+	?a ?b ?form.
+	?form ?c ?d.
+} WHERE {
+	{ ?lex ontolex:lexicalForm ?form. } UNION { ?form lexlink:formOf ?lex }
+	FILTER(NOT EXISTS{ [] lexlink:sameFormAs ?form })	
+	{ 	?a ?b ?form.
+	}  UNION {
+		?form ?c ?d.
+	}
+};
+
+######################################
+# remove formVariant and baseVariant #
+######################################
+
+DELETE {
+	?a lexlink:formVariant ?b.
+	?a lexlink:baseVariant ?c.
+} WHERE {
+	?a lexlink:formVariant ?b
+	OPTIONAL { ?a lexlink:baseVariant ?c }
+}; 
+

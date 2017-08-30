@@ -1,0 +1,22 @@
+# delete redundant information from ETSCRI for improved visualization
+
+PREFIX conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+
+DELETE { ?a conll:CF ?b } WHERE { ?a conll:CF ?b };
+DELETE { ?a conll:ID ?b } WHERE { ?a conll:ID ?b };
+DELETE { ?a conll:MORPH ?b } WHERE { ?a conll:MORPH ?b };
+DELETE { ?a conll:EPOS ?b } WHERE { ?a conll:EPOS ?b };
+DELETE { ?a conll:GW ?b } WHERE { ?a conll:GW ?b };
+DELETE { ?a conll:FORM ?b } WHERE { ?a conll:FORM ?b };
+DELETE { ?a conll:LANG ?b } WHERE { ?a conll:LANG ?b };
+DELETE { ?a conll:BASE ?b } WHERE { ?a conll:BASE ?b };
+DELETE {
+	?a conll:MORPH2 ?morph
+} INSERT {
+	?a conll:MORPH2 ?slimMorph
+} WHERE {
+	?a conll:MORPH2 ?morph.
+	BIND(replace(str(?morph), '[^\\.=]*=','') AS ?slimMorph)
+};
+DELETE { ?a conll:SENSE ?b } WHERE { ?a conll:SENSE ?b FILTER(!regex(str(?b),'[a-zA-Z]')) }; # keep senses with string representations, only
+
