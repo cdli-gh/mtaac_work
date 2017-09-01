@@ -19,7 +19,14 @@ full corpus available from https://github.com/oracc/json/blob/master/etcsri.zip 
 
 CDLI 
 -
+
+object ids:
+- http://cdli.ucla.edu/search/archival_view.php?ObjectID=P226637 (instance from BM = BM 090002)
 - http://cdli.ucla.edu/search/archival_view.php?ObjectID=P432112
+
+text id ("composite"):
+- Q000935 (groups together multiple examples of the same text)
+- http://cdli.ucla.edu/search/search_results.php?CompositeNumber=Q000935
 
 ePSD linking (no disambiguation)
 -
@@ -49,8 +56,60 @@ The ORACC HTML edition links to the internal ORACC glossary, instead.
 CIDOC/CRM metadata
 -
 http://triplestore.modyco.fr/ doesn't respond, status update requested
+to get from composite (text) id to object id(s)
+object provides external keys, e.g., to the British Museum
+
+British Museum
+- http://cdli.ucla.edu/search/archival_view.php?ObjectID=P226637 (instance from BM = BM 090002)
+- search under http://www.britishmuseum.org/research/collection_online/search.aspx
+- search for 90002 (no zero!)
+- http://www.britishmuseum.org/research/collection_online/collection_object_details.aspx?objectId=760943&partId=1&searchText=90002&page=1
+- search via end point https://collection.britishmuseum.org/sparql
+
+	SELECT DISTINCT *
+	WHERE {
+		?inscription ?rel "Fired clay brick; four line inscription of Ur-Nammu."
+	} LIMIT 2
+
+- https://collection.britishmuseum.org/resource/?uri=http%3A%2F%2Fcollection.britishmuseum.org%2Fid%2Fobject%2FWCO89442
+- ?object crm:P1_is_identified_by <http://collection.britishmuseum.org/id/object/WCO89442/bigno>.
+  <http://collection.britishmuseum.org/id/object/WCO89442/bigno> rdfs:label "90002".
+- tbc.: possibly not unique
+
+if we have the CDLI-provided BM id, and we strip of the leading 0, then the following works:
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bmo: <http://collection.britishmuseum.org/id/ontology/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rs: <http://www.researchspace.org/ontology/>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+    
+SELECT DISTINCT *
+WHERE {
+  ?object crm:P1_is_identified_by/rdfs:label "90002".
+} 
+
+However, this is not unique and must be filtered
+- Filtering for language is problematic, as language annotations are incomplete
+- Filtering for department works
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bmo: <http://collection.britishmuseum.org/id/ontology/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rs: <http://www.researchspace.org/ontology/>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+    
+SELECT DISTINCT *
+WHERE {
+  ?object crm:P1_is_identified_by/rdfs:label "90002"; 
+          rs:Thing_from_Actor <http://collection.britishmuseum.org/id/thesauri/department/W>.
+  ?object ?rel ?arg.
+} 
+
+
 
 Annotation linking
 -
 - cf. https://cdli-gh.github.io/tags.html
 - to be linked to either UD (https://www.w3.org/2012/pyRdfa/extract?uri=http://fginter.github.io/docs/u/pos/all.html&format=xml&rdfagraph=output&vocab_expansion=false&rdfa_lite=false&embedded_rdf=true&space_preserve=false&vocab_cache=true&vocab_cache_report=false&vocab_cache_refresh=false) or Unimorph (http://purl.org/olia/owl/experimental/unimorph.owl)
+
