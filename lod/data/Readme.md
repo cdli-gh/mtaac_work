@@ -106,8 +106,26 @@ WHERE {
   ?object ?rel ?arg.
 } 
 
+possible benefit of BM linking: publication notes
 
-
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bmo: <http://collection.britishmuseum.org/id/ontology/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rs: <http://www.researchspace.org/ontology/>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+    
+SELECT DISTINCT *
+WHERE {
+  ?object crm:P1_is_identified_by/rdfs:label "90002".
+  ?object rs:Thing_from_Actor <http://collection.britishmuseum.org/id/thesauri/department/W>.
+  OPTIONAL {
+   { SELECT ?object (GROUP_CONCAT(?note; SEPARATOR = " / " ) AS ?notes)
+    WHERE { 
+    	?object rs:Thing_from_Actor <http://collection.britishmuseum.org/id/thesauri/department/W>.
+    	?object crm:P70i_is_documented_in/crm:P3_has_note ?note.
+      } GROUP BY ?object ORDER BY ?object ASC(?note)
+    }}
+} 
 Annotation linking
 -
 - cf. https://cdli-gh.github.io/tags.html
