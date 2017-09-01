@@ -1,0 +1,24 @@
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix cdli:	<http://cdli.ucla.edu/?q=cdli-search-information#> .
+@prefix crm:    <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix : <http://cdli.ucla.edu/search/archival_view.php?ObjectID=> .
+
+# Template is an RDF file showing how one row from the CSV file will be mapped to RDF.
+# Values from one row will be inserted into URIs and literals as specified by the template
+# variables and the resulting triples will be in the output.
+
+# museum_no,id_text,accession_no,composite,id_text2,height,material,period,thickness,width,id
+
+:p${id_text} a crm:E84_Information_Carrier;
+	cdli:museum_no "${museum_no}";
+	cdli:id_text "${id_text}";
+	cdli:accession_no "${accession_no}";
+	cdli:composite "${composite}";
+	cdli:id_text2 "${id_text2}";
+	cdli:height "${height}";
+	cdli:material "${material}";
+	cdli:period "${period}";
+	cdli:thickness "${thickness}";
+	cdli:width "${width}";
+	cdli:id "${id}".

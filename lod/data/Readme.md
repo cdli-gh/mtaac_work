@@ -22,11 +22,14 @@ CDLI
 
 object ids:
 - http://cdli.ucla.edu/search/archival_view.php?ObjectID=P226637 (instance from BM = BM 090002)
-- http://cdli.ucla.edu/search/archival_view.php?ObjectID=P432112
 
 text id ("composite"):
 - Q000935 (groups together multiple examples of the same text)
 - http://cdli.ucla.edu/search/search_results.php?CompositeNumber=Q000935
+
+metadata sample:
+- ../metadata/cdli_bm_export-sample.csv
+50 sample entries from Ur III with BM id, includes BM 090002
 
 ePSD linking (no disambiguation)
 -

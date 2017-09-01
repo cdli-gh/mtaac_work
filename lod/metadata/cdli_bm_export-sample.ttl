@@ -1,0 +1,655 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cdli: <http://cdli.ucla.edu/?q=cdli-search-information#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix : <http://cdli.ucla.edu/search/archival_view.php?ObjectID=> .
+
+:p226637 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090002" ;
+	cdli:id_text "226637" ;
+	cdli:accession_no "1979-12-20, 0003" ;
+	cdli:composite "Q000935" ;
+	cdli:id_text2 "0" ;
+	cdli:height "28.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "5.00cm" ;
+	cdli:width "28.00cm" ;
+	cdli:id "833250562" .
+
+:p226638 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090003" ;
+	cdli:id_text "226638" ;
+	cdli:accession_no "1979-12-20, 0004" ;
+	cdli:composite "Q000935" ;
+	cdli:id_text2 "0" ;
+	cdli:height "32.00cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "6.00cm" ;
+	cdli:width "32.00cm" ;
+	cdli:id "833250563" .
+
+:p226639 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090004" ;
+	cdli:id_text "226639" ;
+	cdli:accession_no "1979-12-20, 0005" ;
+	cdli:composite "Q000936" ;
+	cdli:id_text2 "0" ;
+	cdli:height "36.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "8.50cm" ;
+	cdli:width "36.50cm" ;
+	cdli:id "833250564" .
+
+:p226640 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090005" ;
+	cdli:id_text "226640" ;
+	cdli:accession_no "1979-12-20, 0006" ;
+	cdli:composite "Q000978" ;
+	cdli:id_text2 "0" ;
+	cdli:height "34.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "9.00cm" ;
+	cdli:width "20.50cm" ;
+	cdli:id "833250565" .
+
+:p226641 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090006" ;
+	cdli:id_text "226641" ;
+	cdli:accession_no "1851-01-01, 0279" ;
+	cdli:composite "Q000953" ;
+	cdli:id_text2 "0" ;
+	cdli:height "12.00in" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "12.00in" ;
+	cdli:id "833250566" .
+
+:p226642 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090007" ;
+	cdli:id_text "226642" ;
+	cdli:accession_no "1979-12-20, 0007" ;
+	cdli:composite "Q000953" ;
+	cdli:id_text2 "0" ;
+	cdli:height "31.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.50cm" ;
+	cdli:width "32.00cm" ;
+	cdli:id "833250567" .
+
+:p226643 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090008" ;
+	cdli:id_text "226643" ;
+	cdli:accession_no "1979-12-20, 0008" ;
+	cdli:composite "Q000955" ;
+	cdli:id_text2 "0" ;
+	cdli:height "33.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.50cm" ;
+	cdli:width "32.00cm" ;
+	cdli:id "833250568" .
+
+:p226644 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090009" ;
+	cdli:id_text "226644" ;
+	cdli:accession_no "1979-12-20, 0009" ;
+	cdli:composite "Q000936" ;
+	cdli:id_text2 "0" ;
+	cdli:height "37.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "9.00cm" ;
+	cdli:width "36.50cm" ;
+	cdli:id "833250569" .
+
+:p226645 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090010" ;
+	cdli:id_text "226645" ;
+	cdli:accession_no "1979-12-20, 0010" ;
+	cdli:composite "Q000953" ;
+	cdli:id_text2 "0" ;
+	cdli:height "31.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.00cm" ;
+	cdli:width "31.00cm" ;
+	cdli:id "833250570" .
+
+:p226646 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090011" ;
+	cdli:id_text "226646" ;
+	cdli:accession_no "1979-12-20, 0011" ;
+	cdli:composite "Q000936" ;
+	cdli:id_text2 "0" ;
+	cdli:height "37.00cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "10.00cm" ;
+	cdli:width "36.50cm" ;
+	cdli:id "833250571" .
+
+:p226647 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090012" ;
+	cdli:id_text "226647" ;
+	cdli:accession_no "1979-12-20, 0012" ;
+	cdli:composite "Q000936" ;
+	cdli:id_text2 "0" ;
+	cdli:height "37.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "9.50cm" ;
+	cdli:width "28.50cm" ;
+	cdli:id "833250572" .
+
+:p226648 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090013" ;
+	cdli:id_text "226648" ;
+	cdli:accession_no "1979-12-20, 0013" ;
+	cdli:composite "Q000955" ;
+	cdli:id_text2 "0" ;
+	cdli:height "33.00cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.00cm" ;
+	cdli:width "32.00cm" ;
+	cdli:id "833250573" .
+
+:p226649 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090014" ;
+	cdli:id_text "226649" ;
+	cdli:accession_no "1895-05-14, 0009" ;
+	cdli:composite "Q000953" ;
+	cdli:id_text2 "0" ;
+	cdli:height "12.50in" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "12.50in" ;
+	cdli:id "833250574" .
+
+:p226650 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090015" ;
+	cdli:id_text "226650" ;
+	cdli:accession_no "1979-12-20, 0014" ;
+	cdli:composite "Q000953" ;
+	cdli:id_text2 "0" ;
+	cdli:height "32.00cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.50cm" ;
+	cdli:width "32.00cm" ;
+	cdli:id "833250575" .
+
+:p226651 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090016" ;
+	cdli:id_text "226651" ;
+	cdli:accession_no "1979-12-20, 0015" ;
+	cdli:composite "Q000955" ;
+	cdli:id_text2 "0" ;
+	cdli:height "32.00cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.50cm" ;
+	cdli:width "32.00cm" ;
+	cdli:id "833250576" .
+
+:p226652 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090017" ;
+	cdli:id_text "226652" ;
+	cdli:accession_no "1979-12-20, 0016" ;
+	cdli:composite "Q000978" ;
+	cdli:id_text2 "0" ;
+	cdli:height "32.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "5.00cm" ;
+	cdli:width "20.50cm" ;
+	cdli:id "833250577" .
+
+:p226653 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090018" ;
+	cdli:id_text "226653" ;
+	cdli:accession_no "1979-12-20, 0017" ;
+	cdli:composite "Q000955" ;
+	cdli:id_text2 "0" ;
+	cdli:height "32.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.50cm" ;
+	cdli:width "32.00cm" ;
+	cdli:id "833250578" .
+
+:p226654 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090019" ;
+	cdli:id_text "226654" ;
+	cdli:accession_no "1851-01-01, 0303" ;
+	cdli:composite "Q000953" ;
+	cdli:id_text2 "0" ;
+	cdli:height "12.50in" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "12.50in" ;
+	cdli:id "833250579" .
+
+:p226655 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090020" ;
+	cdli:id_text "226655" ;
+	cdli:accession_no "1851-01-01, 0289" ;
+	cdli:composite "Q000935" ;
+	cdli:id_text2 "0" ;
+	cdli:height "11.00in" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "11.00in" ;
+	cdli:id "833250580" .
+
+:p226656 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090021" ;
+	cdli:id_text "226656" ;
+	cdli:accession_no "1979-12-20, 0018" ;
+	cdli:composite "Q000953" ;
+	cdli:id_text2 "0" ;
+	cdli:height "32.00cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.50cm" ;
+	cdli:width "31.50cm" ;
+	cdli:id "833250581" .
+
+:p226657 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090023" ;
+	cdli:id_text "226657" ;
+	cdli:accession_no "1979-12-20, 0020" ;
+	cdli:composite "Q000981" ;
+	cdli:id_text2 "0" ;
+	cdli:height "32.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.00cm" ;
+	cdli:width "32.50cm" ;
+	cdli:id "833250582" .
+
+:p226658 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090024" ;
+	cdli:id_text "226658" ;
+	cdli:accession_no "1979-12-20, 0021" ;
+	cdli:composite "Q000988" ;
+	cdli:id_text2 "0" ;
+	cdli:height "?" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "?" ;
+	cdli:id "833250583" .
+
+:p226659 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090025" ;
+	cdli:id_text "226659" ;
+	cdli:accession_no "1979-12-20, 0022" ;
+	cdli:composite "Q000981" ;
+	cdli:id_text2 "0" ;
+	cdli:height "32.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.00cm" ;
+	cdli:width "32.50cm" ;
+	cdli:id "833250584" .
+
+:p226660 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090026" ;
+	cdli:id_text "226660" ;
+	cdli:accession_no "1979-12-20, 0023" ;
+	cdli:composite "Q000988" ;
+	cdli:id_text2 "0" ;
+	cdli:height "26.00cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "26.00cm" ;
+	cdli:id "833250585" .
+
+:p226661 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090027" ;
+	cdli:id_text "226661" ;
+	cdli:accession_no "1979-12-20, 0024" ;
+	cdli:composite "Q000988" ;
+	cdli:id_text2 "0" ;
+	cdli:height "26.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "6.50cm" ;
+	cdli:width "26.00cm" ;
+	cdli:id "833250586" .
+
+:p226662 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090030" ;
+	cdli:id_text "226662" ;
+	cdli:accession_no "1979-12-20, 0027" ;
+	cdli:composite "Q000981" ;
+	cdli:id_text2 "0" ;
+	cdli:height "32.00cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.00cm" ;
+	cdli:width "32.00cm" ;
+	cdli:id "833250587" .
+
+:p226663 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090034" ;
+	cdli:id_text "226663" ;
+	cdli:accession_no "1979-12-20, 0029" ;
+	cdli:composite "Q000981" ;
+	cdli:id_text2 "0" ;
+	cdli:height "16.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "6.50cm" ;
+	cdli:width "34.00cm" ;
+	cdli:id "833250588" .
+
+:p226664 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090035" ;
+	cdli:id_text "226664" ;
+	cdli:accession_no "1979-12-20, 0030" ;
+	cdli:composite "Q000988" ;
+	cdli:id_text2 "0" ;
+	cdli:height "?" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "?" ;
+	cdli:id "833250589" .
+
+:p226665 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090036" ;
+	cdli:id_text "226665" ;
+	cdli:accession_no "1859-10-14, 0006" ;
+	cdli:composite "Q000985" ;
+	cdli:id_text2 "0" ;
+	cdli:height "11.75in" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "12.00in" ;
+	cdli:id "833250590" .
+
+:p226666 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090037" ;
+	cdli:id_text "226666" ;
+	cdli:accession_no "1859-10-14, 0046" ;
+	cdli:composite "Q000981" ;
+	cdli:id_text2 "0" ;
+	cdli:height "13.00in" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "2.75in" ;
+	cdli:width "6.50in" ;
+	cdli:id "833250591" .
+
+:p226667 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090038" ;
+	cdli:id_text "226667" ;
+	cdli:accession_no "1979-12-20, 0031" ;
+	cdli:composite "Q000988" ;
+	cdli:id_text2 "0" ;
+	cdli:height "26.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.00cm" ;
+	cdli:width "26.50cm" ;
+	cdli:id "833250592" .
+
+:p226668 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090039" ;
+	cdli:id_text "226668" ;
+	cdli:accession_no "1859-10-14, 0009" ;
+	cdli:composite "Q000985" ;
+	cdli:id_text2 "0" ;
+	cdli:height "12.25in" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "12.50in" ;
+	cdli:id "833250593" .
+
+:p226669 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090040" ;
+	cdli:id_text "226669" ;
+	cdli:accession_no "1859-10-14, 0008" ;
+	cdli:composite "Q000981" ;
+	cdli:id_text2 "0" ;
+	cdli:height "12.00in" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "6.00in" ;
+	cdli:id "833250594" .
+
+:p226670 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090042" ;
+	cdli:id_text "226670" ;
+	cdli:accession_no "1979-12-20, 0033" ;
+	cdli:composite "Q000981" ;
+	cdli:id_text2 "0" ;
+	cdli:height "?" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "?" ;
+	cdli:id "833250595" .
+
+:p226671 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090043" ;
+	cdli:id_text "226671" ;
+	cdli:accession_no "1979-12-20, 0034" ;
+	cdli:composite "Q001796" ;
+	cdli:id_text2 "0" ;
+	cdli:height "31.00cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.00cm" ;
+	cdli:width "31.00cm" ;
+	cdli:id "833250596" .
+
+:p226672 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090044" ;
+	cdli:id_text "226672" ;
+	cdli:accession_no "1979-12-20, 0035" ;
+	cdli:composite "Q000988" ;
+	cdli:id_text2 "0" ;
+	cdli:height "27.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.00cm" ;
+	cdli:width "14.50cm" ;
+	cdli:id "833250597" .
+
+:p226673 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090056" ;
+	cdli:id_text "226673" ;
+	cdli:accession_no "1979-12-20, 0045" ;
+	cdli:composite "Q000988" ;
+	cdli:id_text2 "0" ;
+	cdli:height "25.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.00cm" ;
+	cdli:width "26.50cm" ;
+	cdli:id "833250598" .
+
+:p226674 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090058 + BM 090821" ;
+	cdli:id_text "226674" ;
+	cdli:accession_no "1979-12-20, 0047" ;
+	cdli:composite "Q000988" ;
+	cdli:id_text2 "0" ;
+	cdli:height "26.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "7.50cm" ;
+	cdli:width "26.00cm" ;
+	cdli:id "833250599" .
+
+:p226675 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090061" ;
+	cdli:id_text "226675" ;
+	cdli:accession_no "1979-12-20, 0049" ;
+	cdli:composite "Q000988" ;
+	cdli:id_text2 "0" ;
+	cdli:height "26.00cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "6.50cm" ;
+	cdli:width "25.50cm" ;
+	cdli:id "833250600" .
+
+:p226676 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090276" ;
+	cdli:id_text "226676" ;
+	cdli:accession_no "1979-12-20, 0169" ;
+	cdli:composite "Q000978" ;
+	cdli:id_text2 "0" ;
+	cdli:height "27.00cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "8.00cm" ;
+	cdli:width "20.00cm" ;
+	cdli:id "833250601" .
+
+:p226677 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090277" ;
+	cdli:id_text "226677" ;
+	cdli:accession_no "1979-12-20, 0170" ;
+	cdli:composite "Q000960" ;
+	cdli:id_text2 "0" ;
+	cdli:height "?" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "?" ;
+	cdli:id "833250602" .
+
+:p226678 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090278" ;
+	cdli:id_text "226678" ;
+	cdli:accession_no "1979-12-20, 0171" ;
+	cdli:composite "Q000960" ;
+	cdli:id_text2 "0" ;
+	cdli:height "35.00cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "8.00cm" ;
+	cdli:width "34.00cm" ;
+	cdli:id "833250603" .
+
+:p226679 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090279" ;
+	cdli:id_text "226679" ;
+	cdli:accession_no "1979-12-20, 0172" ;
+	cdli:composite "Q000988" ;
+	cdli:id_text2 "0" ;
+	cdli:height "27.00cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "6.50cm" ;
+	cdli:width "26.50cm" ;
+	cdli:id "833250604" .
+
+:p226680 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090296" ;
+	cdli:id_text "226680" ;
+	cdli:accession_no "1979-12-20, 0183" ;
+	cdli:composite "Q000937" ;
+	cdli:id_text2 "0" ;
+	cdli:height "27.50cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "5.50cm" ;
+	cdli:width "24.50cm" ;
+	cdli:id "833250605" .
+
+:p226681 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090348" ;
+	cdli:id_text "226681" ;
+	cdli:accession_no "1859-10-14, 0004" ;
+	cdli:composite "Q000981" ;
+	cdli:id_text2 "0" ;
+	cdli:height "7.00in" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "8.00in" ;
+	cdli:id "833250606" .
+
+:p226682 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090349" ;
+	cdli:id_text "226682" ;
+	cdli:accession_no "1859-10-14, 0005" ;
+	cdli:composite "Q000981" ;
+	cdli:id_text2 "0" ;
+	cdli:height "4.75in" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "4.75in" ;
+	cdli:id "833250607" .
+
+:p226683 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090352" ;
+	cdli:id_text "226683" ;
+	cdli:accession_no "1979-12-20, 0210" ;
+	cdli:composite "Q000981" ;
+	cdli:id_text2 "0" ;
+	cdli:height "30.00cm" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "8.00cm" ;
+	cdli:width "29.00cm" ;
+	cdli:id "833250608" .
+
+:p226684 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090353" ;
+	cdli:id_text "226684" ;
+	cdli:accession_no "1859-10-14, 0045" ;
+	cdli:composite "Q000985" ;
+	cdli:id_text2 "0" ;
+	cdli:height "13.00in" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "2.75in" ;
+	cdli:width "6.00in" ;
+	cdli:id "833250609" .
+
+:p226685 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090372" ;
+	cdli:id_text "226685" ;
+	cdli:accession_no "1859-10-14, 0010" ;
+	cdli:composite "Q000981" ;
+	cdli:id_text2 "0" ;
+	cdli:height "7.75in" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "6.50in" ;
+	cdli:id "833250610" .
+
+:p226686 a crm:E84_Information_Carrier ;
+	cdli:museum_no "BM 090374" ;
+	cdli:id_text "226686" ;
+	cdli:accession_no "1851-10-09, 0069" ;
+	cdli:composite "Q000949" ;
+	cdli:id_text2 "0" ;
+	cdli:height "6.00in" ;
+	cdli:material "clay" ;
+	cdli:period "Ur III (ca. 2100-2000 BC)" ;
+	cdli:thickness "?" ;
+	cdli:width "6.00in" ;
+	cdli:id "833250611" .
