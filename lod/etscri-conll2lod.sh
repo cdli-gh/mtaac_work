@@ -70,7 +70,14 @@ for file in $HOME/data/*.conll; do
 			-updates $SYSTEM_HOME/linker/slim-etscri.sparql |\
 		$HOME/linker/run.sh CoNLLRDFFormatter $* 2>&1 | \
 															# DEBUG: treat epsd like a namespace, remove prefixes
-		sed -e s/'<http:..psd.museum.upenn.edu.epsd.epsd.\([^>]*\)>'/'epsd:\1'/g | \
+		sed -e s/'<http:..psd.museum.upenn.edu.epsd.epsd.\([^>]*\)>'/'epsd:\1'/g \
+			-e s/'<http:..www.cidoc-crm.org.cidoc-crm.\([^>]*\)>'/'crm:\1'/g \
+			-e s/'<http:..cdli.ucla.edu..q=cdli-search-information#\([^>]*\)>'/'cdli:\1'/g \
+			-e s/'<http:..purl.org.dc.terms.\([^>]*\)>'/'dcterms:\1'/g \
+			-e s/'<http:..purl.org.dc.dcmitype.\([^>]*\)>'/'dcmitype:\1'/g \
+			-e s/'<http:..cdli.ucla.edu.search.[^>]*ObjectID=\([^>]*\)>'/'cdliobject:\1'/g \
+			-e s/'<http:..oracc.museum.upenn.edu.\([^>]*\)>'/'oracc:\1'/g \
+			| \
 		grep -v -i '@prefix' | \
 		grep -v '^SLF4J';
 	else
