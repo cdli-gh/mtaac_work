@@ -1,0 +1,77 @@
+# create a link between a dcmitype:Text and CDLI metadata
+# PRE: cdli metadata in graph http://cdli.ucla.edu/?q=cdli-search-information
+
+PREFIX nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX bmo: <http://collection.britishmuseum.org/id/ontology/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rs: <http://www.researchspace.org/ontology/>
+PREFIX crm:    <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX cdli: <http://cdli.ucla.edu/?q=cdli-search-information#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+
+###################
+# 1. CDLI linking #
+###################
+
+# ETSCRI: we have the composite number, but not the object number
+# other constellations (object/text number) not supported yet
+# here, we link with *all* objects and copy their metadata
+INSERT {
+	?object crm:P65_shows_visual_item ?text.
+	?object ?a ?b.
+} WHERE {
+	?text a crm:E34_Inscription.
+	?text cdli:composite ?composite.
+	GRAPH <http://cdli.ucla.edu/?q=cdli-search-information> {
+		?object cdli:composite ?composite.
+		?object ?a ?b.
+	}
+};
+
+# postprocessing:
+# remove cdli:composite (if resolved, represented by P65, if unresolved, it won't be needed either)
+DELETE {
+	?a cdli:composite ?composite
+} WHERE {
+	?a cdli:composite ?composite
+};
+
+# remove uninformative CDLI information
+DELETE {
+	?a ?rel "0".
+} WHERE {
+	?a ?rel "0".
+	FILTER(strstarts(str(?rel), "http://cdli.ucla.edu/?q=cdli-search-information#"))
+};
+DELETE {
+	?a ?rel "?".
+} WHERE {
+	?a ?rel "?".
+	FILTER(strstarts(str(?rel), "http://cdli.ucla.edu/?q=cdli-search-information#"))
+};
+
+#################
+# 2. BM linking #
+#################
+# here: 1:1 mapping only, but multi-piece fragments may have multiple BM ids
+
+# disabled because the BM certificate won't let us run the request
+# DELETE {
+	# ?object cdli:museum_no ?musno.
+# } INSERT {
+	# ?object owl:sameAs ?bmobject.
+# } WHERE {
+	# ?object cdli:museum_no ?musno. # e.g. "BM 090002
+	# FILTER(strstarts(str(?musno),'BM '))
+	# BIND(replace(str(?musno),'^BM 0','') AS ?bmno)
+	# SERVICE <https://collection.britishmuseum.org/sparql> {
+		# ?bmobject rs:Thing_from_Actor <http://collection.britishmuseum.org/id/thesauri/department/W>.
+		# ?bmobject crm:P1_is_identified_by/rdfs:label ?bmno.
+	# }		
+# };

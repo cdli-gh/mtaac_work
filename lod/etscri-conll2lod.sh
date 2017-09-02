@@ -21,9 +21,24 @@ echo 'always run this script from its home directory' 1>&2
 echo 'applies to all files in '$HOME'/data/*.conll' 1>&2
 echo 1>&2
 
-echo create local ePSD edition 1>&2;	# slow, but we cannot provide the data without back-confirmation
+#
+# 0. preparations (necessary for illustrational demo, not part of the data workflow)
+echo create local ePSD edition 1>&2;	# slow, we thus provide a precompiled version
 bash dict/build-epsd-ttl.sh;
 
+echo 1>&2;
+
+if [ -e metadata/cdli_bm_export-sample.ttl ]; then		# use precompiled metadata when available
+	echo use local CDLI metadata 1>&2
+else 
+	echo create local CDLI metadata 1>&2;
+	bash java -jar metadata/csv2rdf.jar metadata/cdli2rdf-template.ttl metadata/cdli_bm_export-sample.csv metadata/cdli_bm_export-sample.ttl;
+fi;
+
+echo 1>&2;
+
+#
+# actual processing: file by file
 for file in $HOME/data/*.conll; do
 	BASE_URI="http://oracc.museum.upenn.edu/etcsri/"`echo $file | sed -e s/'.*\/'//g -e s/'.conll$'//`'#';
 	COLS=" ID    WORD    BASE    CF      EPOS    FORM    GW      LANG    MORPH   MORPH2  NORM    POS     SENSE";
@@ -31,11 +46,24 @@ for file in $HOME/data/*.conll; do
 	echo '                             '$COLS 1>&2	
 	iconv -f utf-8 -t utf-8 $file | \
 	sed s/'#.*'//g | \
-	$HOME/linker/run.sh CoNLLStreamExtractor $BASE_URI $COLS | \
+	#
+	# 1. convert CoNLL data to RDF and prepare linking with CDLI metadata
+	$HOME/linker/run.sh CoNLLStreamExtractor $BASE_URI $COLS \
+		-u $SYSTEM_HOME/linker/define-etscri-inscription.sparql \
+	| \
+	#
+	# 2. link ePSD dictionary
 	$HOME/linker/run.sh CoNLLRDFUpdater \
 		-custom -model file:///$SYSTEM_HOME/dict/epsd.ttl http://psd.museum.upenn.edu/epsd/epsd \
 		-updates $SYSTEM_HOME/linker/link-ePSD.sparql \
 		| \
+	#
+	# 3. copy CDLI and BM metadata
+	$HOME/linker/run.sh CoNLLRDFUpdater \
+		-custom -model file:///$SYSTEM_HOME/metadata/cdli_bm_export-sample.ttl "http://cdli.ucla.edu/?q=cdli-search-information" \
+		-updates $SYSTEM_HOME/linker/link-inscription-cdli.sparql \
+	| \
+	# 4. we're done, now we format
 	if echo $* | grep 'debug' >/dev/null; then				# DEBUG: filter content to be shown
 		$HOME/linker/run.sh CoNLLRDFUpdater \
 			-custom http://example.org \

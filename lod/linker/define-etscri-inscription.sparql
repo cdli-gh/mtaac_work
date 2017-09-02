@@ -1,0 +1,36 @@
+# create a link between ETSCRI data and CDLI metadata (here: a dc:Text with a cdli:composite that can be matched against CDLI metadata)
+
+PREFIX nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+PREFIX crm:    <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX cdli: <http://cdli.ucla.edu/?q=cdli-search-information#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcmitype: <http://purl.org/dc/dcmitype/>
+
+# link sentence with ?base object
+INSERT {
+	?sentence dcterms:isPartOf ?base.
+} where {
+	?sentence a nif:Sentence.
+	BIND(URI(replace(str(?sentence),'#.*','')) AS ?base)	# we assume that within a document, words are specified as fragments (with #)
+															# as in (our CoNLL-RDF edition of) ETSCRI data
+};
+
+# first sentence only: define the ?base object
+# (metadata is not replicated for each sentence by CoNLLStreamExtractor)
+INSERT {
+	?base a dcmitype:Text.			# in order to use [ a nif:Sentence] dcterms:isPartOf ?base.
+	?base a crm:E34_Inscription.	# in order to use [ a crm:E84_Information_Carrier] crm:P65_shows_visual_item ?base.
+	?base cdli:composite ?composite.
+} WHERE {
+	?sentence dcterms:isPartOf ?base.
+	FILTER(NOT EXISTS { [] nif:nextSentence ?sentence })    # first sentence only:
+	BIND(replace(str(?base),'.*/','') AS ?composite)		# assume that the composite id is the local name of the document
+};
+
+

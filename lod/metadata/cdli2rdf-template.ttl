@@ -10,7 +10,7 @@
 
 # museum_no,id_text,accession_no,composite,id_text2,height,material,period,thickness,width,id
 
-:p${id_text} a crm:E84_Information_Carrier;
+:P${id_text} a crm:E84_Information_Carrier;
 	cdli:museum_no "${museum_no}";
 	cdli:id_text "${id_text}";
 	cdli:accession_no "${accession_no}";
