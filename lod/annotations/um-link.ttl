@@ -1,0 +1,59 @@
+@prefix : <https://cdli-gh.github.io/mtaac/um-link.ttl#> .
+@prefix unimorph: <http://purl.org/olia/unimorph.owl#> .
+@prefix etscri: <http://purl.org/olia/etscri.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <https://cdli-gh.github.io/mtaac/um-link.owl> .
+
+<https://cdli-gh.github.io/mtaac/um-link.owl> rdf:type owl:Ontology ;
+                                              
+                                              rdfs:comment "OLiA Linking Model for mapping ETSCRI morphological tags to Unimorph categories"@en ;
+                                              
+                                              owl:imports <http://purl.org/olia/etscri.owl> ,
+                                                          <http://purl.org/olia/unimorph.owl> .
+
+# HOW TO EDIT THIS FILE
+# All pieces of information should have the form of a triple, i.e., a relation
+# SOME_SUBJECT SOME_PROPERTY SOME_OBJECT .
+# Every triple should be ended with a "."
+# See below for examples for triples and naming conventions. Here, we map from ETSCRI categories to Unimorph categories.
+# Validate the resulting file using http://ttl.summerofcode.be/
+# After "#", you can write additional comments, everything else must be well-formed
+
+# If successfully modelled, you can open the mapping file in Protégé (http://protege.stanford.edu/)
+# This allows for browsing and searching in both ETSCRI and Unimorph ontologies and formally representing the linking
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+# browse the Unimorph documentation under http://www.acoli.informatik.uni-frankfurt.de/resources/olia/owl/experimental/unimorph/html/ and https://unimorph.github.io/doc/unimorph-schema.pdf
+
+### example for an exact mapping
+etscri:ABL owl:sameAs unimorph:ABL .
+
+# other mapping relations:
+# for approximate mapping, use skos:closeMatch 
+# if the Unimorph term is broader, use skos:broader
+# if the ETSCRI term is broader, use skos:narrower
+# if no exact linking can be established, but some overlap exists, use rdfs:seeAlso
+
+### example for partial mapping
+etscri:L1 skos:broader unimorph:IN.
+etscri:L1 skos:broader unimorph:ESS. 
+# we cannot formally express the + operation, but in this way, we can say that it is in the intersection of both
+
+### add an explanative comment to the ETSCRI tag (optional, but recommended)
+etscri:L1 rdfs:comment "locative1 case-marker (df) mapped to IN+ESS (Inessive).
+\"UD has Case=Loc, which is used in a number of Indo-European languages (especially Slavic) but also in Basque, Turkish and others. It has mostly a locative meaning, where the placement and direction are not precisely specified. It can also have a non-locative meaning. The closest counterpart of the locative case in UniMorph is plain ESS\" (http://universaldependencies.org/v2/features.html#unimorph-dimensions-draft-v2). But the possibility for more refinement remains; see Sylak-Glassman 2016 p. 7 on combining simple features."@en .
+# Here, the object is a string. @en at the end means it is in English.
+# Note: In a String, do not use ", but rather \".
+
+### if necessary, state that there is a problem (optional)
+etscri:L1 owl:versionInfo "TODO: ..." .
+

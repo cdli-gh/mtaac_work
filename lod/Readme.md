@@ -5,7 +5,7 @@ Towards a Linked Open Data edition of Sumerian corpus data
  - given a sample of an annotated corpus provided a CoNLL (TSV) format
      1. convert via CoNLL-RDF (illustrated for an ETSCRI data sample, see data/)
      2. link with dictionary (illustrated for the ePSD, see dict/)
-     3. link annotations to repositories of annotation terminology (here, the Universal Dependencies or UniMorph)
+     3. link annotations to repositories of annotation terminology (here, UniMorph, later the Universal Dependencies, see annotations/)
      4. link with CDLI metadata (samples from CDLI, see metadata/)
 	 5. link with external metadata repositories (not accessible yet)
 		  - http://triplestore.modyco.fr currently down, to be up again by end of Sep 2017
