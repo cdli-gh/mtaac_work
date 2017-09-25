@@ -11,7 +11,7 @@ The class `transliteration` allows parsing and normalizing individual tokens (wo
 ### Main properties:
 
 - `raw_translit`: the ATF-transliterated token string
-- `sign_list`: list of dictionaries representing signs, each of which has the following keys:
+- `sign_list`: list of dictionaries representing signs; each has the following keys:
   - `value`: the sign value, i.e. reading
   - `index`: the sign's index
   - `emendation`: the sign in the text (only for emended signs)
