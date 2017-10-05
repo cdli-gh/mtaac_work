@@ -21,7 +21,6 @@ class transliteration:
     extra = re.compile('(\[|\]|\{\?\}|\{\!\}|\\\|/)')
     translit = extra.sub('', translit)
     translit = self.standardize_translit(translit)
-    translit = self.remove_determinatives(translit)
     self.base_translit = translit
     self.sign_list = self.parse_signs(translit)
     for el in self.sign_list:
@@ -33,9 +32,31 @@ class transliteration:
         print([self.raw_translit, self.base_translit, el['value'], self.sign_list])
     i=0
     while i < len(self.sign_list):
-      self.sign_list[i] = self.get_unicode_index(self.sign_list[i])
+      if 'det' not in self.sign_list[i]['type']:
+        self.sign_list[i] = self.get_unicode_index(self.sign_list[i])
       i+=1
     self.set_normalizations()
+
+  def restyle_determinatives(self, translit):
+    re_det = re.compile(r'((?P<o_brc>\{)(?P<det>.*?)(?P<c_brc>\}))')
+    while re_det.search(translit):
+      m = re_det.search(translit)
+      prefix = postfix = ''
+      if m.start() > 0:
+        if translit[m.start()-1] not in ['-']:
+          prefix = '-'
+          typ = 1 #follows
+      else:
+        typ = 0 #preceedes
+      if m.end()+1 < len(translit):
+        if translit[m.end()] not in ['-']:
+          postfix = '-'
+          typ = 0 #preceeds
+      else:
+        typ = 1 #follows
+      translit = re_det.sub('%s%s_DT%s%s' %(prefix, m.group('det'),
+                                            typ, postfix), translit, 1)
+    return translit
 
   def parse_signs(self, translit):
     signs_lst = []
@@ -45,13 +66,18 @@ class transliteration:
     re_source = re.compile(r'(?P<a>.+)(?P<b>\(source:)(?P<c>[^)]+)(?P<d>\))')
     re_index = re.compile(r'(?P<sign>[^\d]+)(?P<index>\d+)')
     re_brc_div = re.compile(r'(?P<a>\([^\)]+)(?P<b>-+)(?P<c>[^\(]+\))')
+    translit = self.restyle_determinatives(translit)
     if re_brc_div.search(translit):
       translit = re_brc_div.sub(lambda m: m.group().replace('-',"="),
                                 translit)    
     for sign in list(filter(lambda x: x!='', translit.split('-'))):
-      index=''
-      emendation=''
-      value_of=''
+      index = ''
+      emendation = ''
+      value_of = ''
+      typ = ''
+      if '_DT' in sign:
+        sign, direction = sign.split('_DT')
+        typ = 'det'+direction
       if re_x_index.search(sign):
         sign = re_x_index.sub('\g<a>ₓ', sign)
       if 'ₓ(' in sign.lower():
@@ -78,14 +104,18 @@ class transliteration:
           i+=1
       signs_lst.append({'value': sign,
                         'index': index,
+                        'type': typ,
                         'emendation': emendation,
                         'value_of': value_of
                         })
     return signs_lst
 
   def set_normalizations(self):
-    norm_flat_lst = [s['value'] for s in self.sign_list]
-    norm_unicode_lst = [s['u_sign'] for s in self.sign_list]
+    norm_flat_lst = [s['value'] for s in self.sign_list
+                     if 'det' not in s['type']]
+    norm_unicode_lst = [s['u_sign'] for s in self.sign_list
+                        if 'det' not in s['type']]
+    self.set_sign_and_determinative_normalization()
     i = 0
     self.normalization = ''
     self.normalization_u = ''
@@ -101,7 +131,21 @@ class transliteration:
         self.normalization+=norm_flat_lst[i]
         self.normalization_u+=norm_unicode_lst[i]
       i+=1
-  
+
+  def set_sign_and_determinative_normalization(self):
+    # Special type of normalization for the purpuse of lemmatization testing:
+    # First non determinative sign and first determinative 
+    # in order of spelling, no index.
+    self.sign_and_det_normalization = ''
+    assigned = [False, False]
+    for s in self.sign_list:
+      if 'det' not in s['type'] and assigned[0]==False:
+        self.sign_and_det_normalization+=s['value']
+        assigned[0] = True
+      elif 'det' in s['type'] and assigned[1]==False:
+        self.sign_and_det_normalization+=s['value']
+        assigned[1] = True
+
   def standardize_translit(self, translit):
     std_dict = {'š':'c', 'ŋ':'j', '₀':'0', '₁':'1', '₂':'2',
                 '₃':'3', '₄':'4', '₅':'5', '₆':'6', '₇':'7',
@@ -138,7 +182,3 @@ class transliteration:
         return {'value': u_sign[:i]+vow_lst[vow_i]+u_sign[i+1:],
                 'index': index}
       i+=1
-
-  def remove_determinatives(self, translit):
-    det = re.compile('(\{.*?\})')
-    return det.sub('', translit)
