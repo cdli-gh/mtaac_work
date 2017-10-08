@@ -8,7 +8,7 @@
 
 ## Roadmap Data
 
-Start: <!--- Accepts most date formats such as MM-DD-YYYY -->
-End: <!--- Accepts most date formats such as MM-DD-YYYY -->
-Label: <!--- Pick the label that will dictate the color of the roadmap bar -->
-Progress (0-1): <!--- Current progress on the issue -->
+#### 🗓 Start Date: <!--- Accepts most date formats such as MM-DD-YYYY -->
+#### 🗓 Expected Date: <!--- Accepts most date formats such as MM-DD-YYYY -->
+#### 💪 Label: <!--- Pick the label that will dictate the color of the roadmap bar -->
+#### 📈 Progress (0-1): <!--- Current progress on the issue -->
