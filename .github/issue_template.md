@@ -14,4 +14,4 @@
 #### 📈 Progress (0-1): <!--- Current progress on the issue -->
 
 
-See Gantt: [http://cdli-dev.org/gantt/mtaac_work/](url)
+See Gantt: http://cdli-dev.org/gantt/mtaac_work/
