@@ -8,6 +8,6 @@ For project objectives see https://cdli-gh.github.io/mtaac/about/. Wrt. to Natur
  - LOD edition of Sumerian corpus data
 
 --
-Tasks: https://github.com/cdli-gh/mtaac_work/issues
-Kaban: https://waffle.io/cdli-gh/mtaac_work
-Gantt: http://cdli-dev.org/gantt/mtaac_work/
+Tasks: https://github.com/cdli-gh/mtaac_work/issues  
+Kaban: https://waffle.io/cdli-gh/mtaac_work  
+Gantt: http://cdli-dev.org/gantt/mtaac_work/  
