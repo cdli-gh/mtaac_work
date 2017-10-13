@@ -1,6 +1,6 @@
 @prefix : <https://cdli-gh.github.io/mtaac/um-link.ttl#> .
 @prefix unimorph: <http://purl.org/olia/unimorph.owl#> .
-@prefix etscri: <http://purl.org/olia/etscri.owl#> .
+@prefix etcsri: <http://purl.org/olia/etscri.owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -9,9 +9,9 @@
 @base <https://cdli-gh.github.io/mtaac/um-link.owl> .
 
 <https://cdli-gh.github.io/mtaac/um-link.owl> rdf:type owl:Ontology ;
-                                              
+
                                               rdfs:comment "OLiA Linking Model for mapping ETSCRI morphological tags to Unimorph categories"@en ;
-                                              
+
                                               owl:imports <http://purl.org/olia/etscri.owl> ,
                                                           <http://purl.org/olia/unimorph.owl> .
 
@@ -35,25 +35,375 @@
 # browse the Unimorph documentation under http://www.acoli.informatik.uni-frankfurt.de/resources/olia/owl/experimental/unimorph/html/ and https://unimorph.github.io/doc/unimorph-schema.pdf
 
 ### example for an exact mapping
-etscri:ABL owl:sameAs unimorph:ABL .
+etcsri:ABL owl:sameAs unimorph:ABL .
 
 # other mapping relations:
-# for approximate mapping, use skos:closeMatch 
+# for approximate mapping, use skos:closeMatch
 # if the Unimorph term is broader, use skos:broader
 # if the ETSCRI term is broader, use skos:narrower
 # if no exact linking can be established, but some overlap exists, use rdfs:seeAlso
 
 ### example for partial mapping
-etscri:L1 skos:broader unimorph:IN.
-etscri:L1 skos:broader unimorph:ESS. 
+etcsri:L1 skos:broader unimorph:IN.
+etcsri:L1 skos:broader unimorph:ESS.
 # we cannot formally express the + operation, but in this way, we can say that it is in the intersection of both
 
 ### add an explanative comment to the ETSCRI tag (optional, but recommended)
-etscri:L1 rdfs:comment "locative1 case-marker (df) mapped to IN+ESS (Inessive).
+etcsri:L1 rdfs:comment "locative1 case-marker (df) mapped to IN+ESS (Inessive).
 \"UD has Case=Loc, which is used in a number of Indo-European languages (especially Slavic) but also in Basque, Turkish and others. It has mostly a locative meaning, where the placement and direction are not precisely specified. It can also have a non-locative meaning. The closest counterpart of the locative case in UniMorph is plain ESS\" (http://universaldependencies.org/v2/features.html#unimorph-dimensions-draft-v2). But the possibility for more refinement remains; see Sylak-Glassman 2016 p. 7 on combining simple features."@en .
 # Here, the object is a string. @en at the end means it is in English.
 # Note: In a String, do not use ", but rather \".
 
 ### if necessary, state that there is a problem (optional)
-etscri:L1 owl:versionInfo "TODO: ..." .
+etcsri:L1 owl:versionInfo "TODO: ..." .
 
+### nouns
+etcsri:L1 skos:broader unimorph:IN.
+etcsri:L1 skos:broader unimorph:ESS.
+etcsri:L1 rdfs:comment "locative1 case-marker (df) mapped to IN+ESS (Inessive).
+\"UD has Case=Loc, which is used in a number of Indo-European languages (especially Slavic) but also in Basque, Turkish and others. It has mostly a locative meaning, where the placement and direction are not precisely specified. It can also have a non-locative meaning. The closest counterpart of the locative case in UniMorph is plain ESS\" (http://universaldependencies.org/v2/features.html#unimorph-dimensions-draft-v2). But the possibility for more refinement remains; see Sylak-Glassman 2016 p. 7 on combining simple features."@en .
+
+etcsri:L2-NH skos:broader unimorph:NH.
+etcsri:L2-NH skos:broader unimorph:ON.
+etcsri:L2-NH skos:broader unimorph:ESS.
+etcsri:L2-NH rdfs:comment "non-human locative2 case-marker mapped to ON + ESS (Superessive)."@en .
+
+etcsri:GEN owl:sameas unimorph:GEN.
+etcsri:GEN rdfs:comment "genitive case marker"@en.
+
+etcsri:3-PL-POSS owl:sameAs unimorph:PSS3P.
+etcsri:3-PL-POSS rdfs:comment "3rd person plural possessive enclitic"@en.
+
+etcsri:3-SG-H-POSS owl:sameAs unimorph:PSS3HS.
+etcsri:3-SG-H-POSS rdfs:comment "3rd person singular human possessive enclitic"@en.
+
+etcsri:3-SG-NH-POSS owl:sameAs unimorph:PSS3NHS.
+etcsri:3-SG-NH-POSS rdfs:comment "3rd person singular nonhuman possessive enclitic"@en.
+
+etcsri:DEM2 skos:broader unimorph:PRO.
+etcsri:DEM2 rdfs:comment "demonstrative pronoun mapped to Pronoun."@en.
+
+etcsri:COM owl:sameAs unimorph:COM.
+etcsri:COM rdfs:comment "comitative case-marker"@en.
+
+etcsri:PL owl:sameas unimorph:PL.
+etcsri:PL rdfs:comment "plural-marker"@en.
+
+etcsri:ERG owl:sameAs unimorph:ERG.
+etcsri:ERG rdfs:comment "ergative case-marker (df)"@en.
+
+etcsri:DAT-NH skos:broader unimorph:NHUM.
+etcsri:DAT-NH skos:broader unimorph:DAT.
+etcsri:DAT-NH rdfs:comment "non-human dative case-marker"@en.
+
+etcsri:L3-NH skos:broader unimorph:NHUM.
+etcsri:L3-NH skos:broader unimorph:APUD.
+etcsri:L3-NH skos:broader unimorph:ESS.
+etcsri:L3-NH rdfs:comment "nonhuman locative3 casemarker mapped to nonhuman APUD+ESS (Adessive)"@en.
+
+etcsri:DEM skos:broader unimorph:PRO.
+etcsri:DEM rdfs:comment "demonstrative pronoun mapped to pronoun"@en.
+
+etcsri:PL owl:sameAs unimorph:PL.
+
+etcsri:EQU owl:sameAs unimorph:EQTV.
+etcsri:EQU rdfs:comment "equative case-marker"@en.
+
+etcsri:1-SG-POSS owl:sameAs unimorph:PSS1S.
+etcsri:1-SG-POSS rdfs:comment "1st person singular possessive enclitic"@en.
+
+etcsri:1-PL-POSS owl:sameAs unimorph:PSS1P.
+etcsri:1-PL-POSS rdfs:comment "1st person plural possessive enclitic"@en.
+
+etcsri:L4 skos:broader unimorph:IN.
+etcsri:L4 skos:broader unimorph:ESS.
+etcsri:L4 rdfs:comment "locative4 case-marker mapped to IN+ESS (Inessive)"@en.
+
+etcsri:ABS owl:sameAs unimorph:ABS.
+etcsri:ABS rdfs:comment "absolutive case-marker"@en.
+
+etcsri:DAT-H skos:broader unimorph:HUM.
+etcsri:DAT-H skos:broader unimorph:DAT.
+etcsri:DAT-H rdfs:comment "human dative case-marker (df)"@en.
+
+etcsri:L2-H skos:broader unimorph:HUM.
+etcsri:L2-H skos:broader unimorph:ON.
+etcsri:L2-H skos:broader unimorph:ESS.
+etcsri:L2-H rdfs:comment "human locative2 case-marker mapped to human ON+ESS (Superessive)."@en.
+
+etcsri:L3-H skos:broader unimorph:HUM.
+etcsri:L3-H skos:broader unimorph:APUD.
+etcsri:L3-H skos:broader unimorph:ESS.
+etcsri:L3-H rdfs:comment "human locative3 case-marker mapped to human APUD+ESS (Adessive)."@en.
+
+etcsri:TERM owl:sameas unimorph:TERM.
+etcsri:TERM rdfs:comment "terminative case-marker"@en.
+
+etcsri:ABL owl:sameas unimorph:ABS.
+etcsri:ABL rdfs:comment "ablative case-marker"@en.
+
+etcsri:2-SG-POSS owl:sameAs unimorph:PSS2S.
+etcsri:2-SG-POSS rdfs:comment "2nd person singular possessive enclitic"@en.
+
+etcsri:2-PL-POSS owl:sameAs unimorph:PSS2P.
+etcsri:2-PL-POSS rdfs:comment "2nd person plural possessive enclitic"@en.
+
+### verbs
+etcsri:STEM owl:sameAs unimorph:V.
+etcsri:STEM rdfs:comment "verbal stem mapped to Verb."@en.
+
+etcsri:STEM-PL skos:broader unimorph:PL.
+etcsri:STEM-PL skos:broader unimorph:V.
+etcsri:STEM-PL rdfs:comment "plural verbal stem mapped to V+PL."@en.
+
+etcsri:STEM-RDP skos:broader unimorph:V.
+etcsri:STEM-RDP rdfs:comment "reduplicated verbal stem mapped to V (Verb)."@en.
+
+etcsri:NEG owl:sameAs unimorph:NEG.
+etcsri:NEG rdfs:comment "negative prefix"@en.
+
+etcsri:MOD1 skos:closeMatch unimorph:POS.
+etcsri:MOD1 rdfs:comment "modal1 prefix mapped to Positive(=affirmative)"@en.
+
+etcsri:ANT skos:closeMatch unimorph:PROSP.
+etcsri:ANT rdfs:comment "prefix of anteriority mapped to PROSP (Prospective)."@en.
+
+etcsri:MOD2 skos:closeMatch unimorph:INTEN.
+etcsri:MOD2 rdfs:comment "modal2 prefix mapped to INTEN (Intentive).
+\"its meaning can be paraphrased as 'It is my/our intention to VERB'\" (Zolymoi 2017, p. 241); This suggests intentive, however it has shades of jussive/hortative as well."@en.
+
+etcsri:MID skos:broader unimorph:MID.
+etcsri:MID skos:broader unimorph:PASS.
+etcsri:MID rdfs:comment "middle prefix mapped to Middle or Passive voice."@en.
+
+etcsri:FIN owl:sameAs unimorph:FIN.
+etcsri:FIN rdfs:comment "finite-marker"@en.
+
+etcsri:FIN-LI owl:sameAs unimorph:FIN.
+etcsri:FIN-LI rdfs:comment "lenghtened finite-marker signaling the syncopation of the vowel of the L1 prefix mapped to FIN (Finite)."@en.
+
+etcsri:FIN-L2 owl:sameAs unimorph:FIN.
+etcsri:FIN-L2 rdfs:comment "lenghtened finite-marker signaling the syncopation of the vowel of the L2 prefix mapped to FIN (Finite)."@en.
+
+etcsri:thirdPerson-NH skos:broader unimorph:thirdperson.
+etcsri:thirdPerson-NH skos:broader unimorph:NHUM.
+etcsri:thirdPerson-NH skos:broader unimorph:SG.
+etcsri:3-NH rdfs:comment "third person singular non-human initial pronominal prefix mapped to 3.NH.SG."@en.
+
+etcsri:firstPerson-SG skos:broader unimorph:firstPerson.
+etcsri:firstPerson-SG skos:broader unimorph:SG.
+etcsri:firstPerson-SG rdfs:comment "first person singular initial pronominal prefix (= IPP) mapped to 1.SG."@en.
+
+etcsri:secondPerson-SG skos:broader unimorph:secondPerson.
+etcsri:secondPerson-SG skos:broader unimorph:SG.
+etcsri:secondPerson-SG rdfs:comment "second person singular IPP mapped to 2.SG."@en.
+
+etcsri:thirdPerson-SG-H skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-SG-H skos:broader unimorph:HUM.
+etcsri:thirdPerson-SG-H skos:broader unimorph:SG.
+etcsri:thirdPerson-SG-H rdfs:comment "third person singular human IPP mapped to 3.H.SG."@en.
+
+etcsri:firstPerson-PL skos:broader unimorph:firstPerson.
+etcsri:firstPerson-PL skos:broader unimorph:PL.
+etcsri:firstPerson-PL rdfs:comment "first person plural IPP mapped to 1.PL."@en.
+
+etcsri:thirdPerson-PL skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-PL skos:broader unimorph:PL.
+etcsri:thirdPerson-PL rdfs:comment "third person plural IPP mapped to 3.PL."@en.
+
+etcsri:COM owl:sameAs unimorph:COM.
+etcsri:COM rdfs:comment "comitative prefix"@en.
+
+etcsri:DAT owl:sameAs unimorph:DAT.
+etcsri:COM rdfs:comment "dative prefix"@en.
+
+etcsri:LOC-OB owl:sameAs unimorph:CAUS.
+etcsri:LOC-OB rdfs:comment "locative prefix used as causative marker in OB texts mapped to CAUS (causative)."@en.
+
+etcsri:L1-SYN skos:broader unimorph:IN.
+etcsri:L1-SYN skos:broader unimorph:ESS.
+etcsri:L1-SYN rdfs:comment "syncopated locative1 prefix mapped to IN+ESS (Inessive)."@en.
+
+etcsri:L2 skos:broader unimorph:ON.
+etcsri:L2 skos:broader unimorph:ESS.
+etcsri:L2 rdfs:comment "locative2 mapped to ON+ESS (Superessive)(Zolyomi 2017, p. 203). \"In its basic function the locative2 indicates a location above or on top of someone or something, or a movement to the top of someone or something.\""@en.
+
+etcsri:L2-SYN skos:broader unimorph:ON.
+etcsri:L2-SYN skos:broader unimorph:ESS.
+etcsri:L2-SYN rdfs:comment "syncopated locative2 prefix mapped to ON+ESS (Superessive)."@en.
+
+etcsri:L3 skos:broader unimorph:APUD.
+etcsri:L3 skos:broader unimorph:ESS.
+etcsri:L3 rdfs:comment "locative3 prefix mapped to APUD+ESS (adessive) (Zolyomi 2017, p. 203); \"In its basic function the locative3 indicates a location next to someone or something, or a movement to someone or something\" (p. 216)."@en.
+
+###pronominal element before base
+etcsri:firstperson-SG-A skos:broader unimorph:firstperson.
+etcsri:firstperson-SG-A skos:broader unimorph:SG.
+etcsri:firstperson-SG-A skos:broader unimorph:ERG.
+etcsri:firstperson-SG-A rdfs:comment "first person singular final pronominal prefix (= FPP) construed with an agent mapped to 1.SG.ERG."@en.
+
+etcsri:secondPerson-SG-A skos:broader unimorph:secondPerson.
+etcsri:secondPerson-SG-A skos:broader unimorph:SG.
+etcsri:secondPerson-SG-A skos:broader unimorph:ERG.
+etcsri:secondPerson-SG-A rdfs:comment "second person singular FPP construed with an agent mapped to 2.SG.ERG."@en.
+
+etcsri:thirdPerson-SG-H-A skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-SG-H-A skos:broader unimorph:HUM.
+etcsri:thirdPerson-SG-H-A skos:broader unimorph:SG.
+etcsri:thirdPerson-SG-H-A skos:broader unimorph:ERG.
+etcsri:thirdPerson-SG-H-A rdfs:comment "third person singular human FPP construed with an agent (df) mapped to 3.HUM.SG.ERG."@en.
+
+etcsri:thirdPerson-SG-H-P skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-SG-H-P skos:broader unimorph:HUM.
+etcsri:thirdPerson-SG-H-P skos:broader unimorph:SG.
+etcsri:thirdPerson-SG-H-P skos:broader unimorph:ABS.
+etcsri:thirdPerson-SG-H-P rdfs:comment "third person singular human FPP construed with a patient mapped to 3.HUM.SG.ABS."@en.
+
+etcsri:thirdPerson-SG-H-L3 skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-SG-H-L3 skos:broader unimorph:HUM.
+etcsri:thirdPerson-SG-H-L3 skos:broader unimorph:SG.
+etcsri:thirdPerson-SG-H-L3 skos:broader unimorph:APUD.
+etcsri:thirdPerson-SG-H-L3 skos:broader unimorph:ESS.
+etcsri:thirdPerson-SG-H-L3 rdfs:comment "third person singular human FPP construed with a participant in L3 mapped to 1.SG.HUM.{APUD+ESS} (adessive)."@en.
+
+etcsri:firstPerson-SG-A-OB skos:broader unimorph:firstPerson.
+etcsri:firstPerson-SG-A-OB skos:broader unimorph:SG.
+etcsri:firstPerson-SG-A-OB skos:broader unimorph:ERG.
+etcsri:firstPerson-SG-A-OB rdfs:comment "first person singular FPP construed with an agent in OB texts mapped to 1.SG.ERG."@en.
+
+etcsri:thirdPerson-SG-NH-A skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-SG-NH-A skos:broader unimorph:NHUM.
+etcsri:thirdPerson-SG-NH-A skos:broader unimorph:SG.
+etcsri:thirdPerson-SG-NH-A skos:broader unimorph:ERG.
+etcsri:thirdPerson-SG-NH-A rdfs:comment "third person singular non-human FPP construed with an agent mapped to 3.NHUM.SG.ERG."@en.
+
+etcsri:thirdPerson-SG-NH-P skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-SG-NH-P skos:broader unimorph:NHUM.
+etcsri:thirdPerson-SG-NH-P skos:broader unimorph:SG.
+etcsri:thirdPerson-SG-NH-P skos:broader unimorph:ABS.
+etcsri:thirdPerson-SG-NH-P rdfs:comment "third person singular non-human FPP construed with a patient (df) mapped to 3.NHUM.SG.ABS."@en.
+
+etcsri:thirdPerson-SG-NH-L3 skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-SG-NH-L3 skos:broader unimorph:NHUM.
+etcsri:thirdPerson-SG-NH-L3 skos:broader unimorph:SG.
+etcsri:thirdPerson-SG-NH-L3 skos:broader unimorph:APUD.
+etcsri:thirdPerson-SG-NH-L3 skos:broader unimorph:ESS.
+etcsri:thirdPerson-SG-NH-L3 rdfs:comment "third person singular non-human FPP construed with a participant in L3 mapped to 1.SG.NHUM.Adessive{APUD+ESS}."@en.
+
+etcsri:thirdPerson-PL-H-P skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-PL-H-P skos:broader unimorph:PL.
+etcsri:thirdPerson-PL-H-P skos:broader unimorph:ABS.
+etcsri:thirdPerson-PL-H-P rdfs:comment "third person plural human FPP construed with a patient mapped to 3.PL.ABS."@en.
+
+etcsri:STEM-PF skos:broader unimorph:V.
+etcsri:STEM-PF skos:broader unimorph:PRS.
+etcsri:STEM-PF skos:broader unimorph:FUT.
+etcsri:STEM-PF rdfs:comment "present-future verbal stem mapped to V.{PRS+FUT}."@en.
+
+etcsri:COP skos:broader unimorph:V.
+etcsri:COP rdfs:comment "the independent copula mapped to V (verb)."@en.
+
+###verbal suffixes
+etcsri:firstPerson-SG-A skos:broader unimorph:firstPerson.
+etcsri:firstPerson-SG-A skos:broader unimorph:SG.
+etcsri:firstPerson-SG-A skos:broader unimorph:ERG.
+etcsri:firstPerson-SG-A rdfs:comment "first person singular agent suffix (df) mapped to 1.SG.ERG."@en.
+
+etcsri:firstPerson-SG-S skos:broader unimorph:firstPerson.
+etcsri:firstPerson-SG-S skos:broader unimorph:SG.
+etcsri:firstPerson-SG-S skos:broader unimorph:NOM.
+etcsri:firstPerson-SG-S rdfs:comment "first person singular subject suffix mapped to 1.SG.NOM."@en.
+
+etcsri:firstPerson-SG-P skos:broader unimorph:firstPerson.
+etcsri:firstPerson-SG-P skos:broader unimorph:SG.
+etcsri:firstPerson-SG-P skos:broader unimorph:ABS.
+etcsri:firstPerson-SG-P rdfs:comment "first person singular patient suffix mapped to 1.SG.ABS."@en.
+
+etcsri:secondPerson-SG-A skos:broader unimorph:secondPerson.
+etcsri:secondPerson-SG-A skos:broader unimorph:SG.
+etcsri:secondPerson-SG-A skos:broader unimorph:ERG.
+etcsri:secondPerson-SG-A rdfs:comment "second person singular agent suffix mapped to 2.SG.ERG."@en.
+
+etcsri:secondPerson-SG-S skos:broader unimorph:secondPerson.
+etcsri:secondPerson-SG-S skos:broader unimorph:SG.
+etcsri:secondPerson-SG-S skos:broader unimorph:NOM.
+etcsri:secondPerson-SG-S rdfs:comment "second person singular subject suffix mapped to 2.SG.NOM."@en.
+
+etcsri:secondPerson-SG-P skos:broader unimorph:secondPerson.
+etcsri:secondPerson-SG-P skos:broader unimorph:SG.
+etcsri:secondPerson-SG-P skos:broader unimorph:ABS.
+etcsri:secondPerson-SG-P rdfs:comment "second person singular patient suffix mapped to 2.SG.ABS."@en.
+
+etcsri:thirdPerson-SG-S skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-SG-S skos:broader unimorph:SG.
+etcsri:thirdPerson-SG-S skos:broader unimorph:NOM.
+etcsri:thirdPerson-SG-S rdfs:comment "third person singular human or non-human subject suffix mapped to 3.SG.NOM."@en.
+
+etcsri:thirdPerson-SG-P skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-SG-P skos:broader unimorph:SG.
+etcsri:thirdPerson-SG-P skos:broader unimorph:ABS.
+etcsri:thirdPerson-SG-P rdfs:comment "third person singular human or non-human patient suffix mapped to 3.SG.ABS."@en.
+
+etcsri:thirdPerson-SG-A skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-SG-A skos:broader unimorph:SG.
+etcsri:thirdPerson-SG-A skos:broader unimorph:ERG.
+etcsri:thirdPerson-SG-A rdfs:comment "third person singular human or non-human agent suffix mapped to 3.SG.ERG."@en.
+
+etcsri:thirdPerson-SG-S-OB skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-SG-S-OB skos:broader unimorph:SG.
+etcsri:thirdPerson-SG-S-OB skos:broader unimorph:NOM.
+etcsri:thirdPerson-SG-S-OB rdfs:comment "third person singular human or non-human subject suffix in OB texts mapped to 3.SG.NOM."@en.
+
+etcsri:firstPerson-PL-A skos:broader unimorph:firstPerson.
+etcsri:firstPerson-PL-A skos:broader unimorph:PL.
+etcsri:firstPerson-PL-A skos:broader unimorph:ERG.
+etcsri:firstPerson-PL-A rdfs:comment "first person plural agent suffix mapped to 1.PL.ERG."@en.
+
+etcsri:firstPerson-PL-S skos:broader unimorph:firstPerson.
+etcsri:firstPerson-PL-S skos:broader unimorph:PL.
+etcsri:firstPerson-PL-S skos:broader unimorph:NOM.
+etcsri:firstPerson-PL-S rdfs:comment "first person plural subject suffix mapped to 1.PL.NOM."@en.
+
+etcsri:firstPerson-PL skos:broader unimorph:firstPerson.
+etcsri:firstPerson-PL skos:broader unimorph:PL.
+etcsri:firstPerson-PL rdfs:comment "first person plural suffix in plural transitive preterite verbal forms mapped to 1.PL."@en.
+
+etcsri:secondPerson-PL-A skos:broader unimorph:secondPerson.
+etcsri:secondPerson-PL-A skos:broader unimorph:PL.
+etcsri:secondPerson-PL-A skos:broader unimorph:ERG.
+etcsri:secondPerson-PL-A rdfs:comment "second person plural agent suffix mapped to 2.PL.ERG."@en.
+
+etcsri:secondPerson-PL-S skos:broader unimorph:secondPerson.
+etcsri:secondPerson-PL-S skos:broader unimorph:PL.
+etcsri:secondPerson-PL-S skos:broader unimorph:NOM.
+etcsri:secondPerson-PL-S rdfs:comment "second person plural subject suffix mapped to 2.PL.NOM."@en.
+
+etcsri:secondPerson-PL skos:broader unimorph:secondPerson.
+etcsri:secondPerson-PL skos:broader unimorph:PL.
+etcsri:secondPerson-PL rdfs:comment "second person plural suffix in plural transitive preterite verbal forms mapped to 2.PL."@en.
+
+etcsri:thirdPerson-PL-S skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-PL-S skos:broader unimorph:PL.
+etcsri:thirdPerson-PL-S skos:broader unimorph:NOM.
+etcsri:thirdPerson-PL-S rdfs:comment "third person plural subject suffix mapped to 3.PL.NOM."@en.
+
+etcsri:thirdPerson-PL-P skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-PL-P skos:broader unimorph:PL.
+etcsri:thirdPerson-PL-P skos:broader unimorph:ABS.
+etcsri:thirdPerson-PL-P rdfs:comment "third person plural patient suffix mapped to 3.PL.ABS."@en.
+
+etcsri:thirdPerson-PL skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-PL skos:broader unimorph:PL.
+etcsri:thirdPerson-PL rdfs:comment "third person plural suffix in plural transitive preterite verbal forms (df) mapped to 3.PL."@en.
+
+etcsri:thirdPerson-PL-A skos:broader unimorph:thirdPerson.
+etcsri:thirdPerson-PL-A skos:broader unimorph:PL.
+etcsri:thirdPerson-PL-A skos:broader unimorph:ERG.
+etcsri:thirdPerson-PL-A rdfs:comment "third person plural agent suffix in present-future verbal forms mapped to 3.PL.ERG."@en.
+
+etcsri:PF skos:broader unimorph:PRS.
+etcsri:PF skos:broader unimorph:FUT.
+etcsri:PF rdfs:comment "present-future marker mapped to PRS+FUT."@en.
+
+etcsri:PLEN owl:sameas unimorph:PL.
+etcsri:PLEN rdfs:comment "verbal suffix marking the plurality of S or P mapped to PL."@en.
