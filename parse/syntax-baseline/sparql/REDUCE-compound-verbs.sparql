@@ -1,0 +1,28 @@
+# N(case) V => N -mwe-> V
+# for *known* compound verbs
+# todo: add additional patterns
+
+prefix : <http://oracc.museum.upenn.edu/etcsri/>
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# (1) N V pattern
+DELETE {
+	?last conll:SHIFT ?noun.
+	?noun conll:SHIFT ?verb.
+} INSERT {
+	?noun conll:REDUCE ?verb; conll:EDGE "mwe".
+	?last conll:SHIFT ?verb.
+} WHERE {
+	?noun conll:POS ?pos FILTER(strends(str(?pos),'N')).				# a noun
+	?noun conll:SHIFT ?verb.											# that precedes
+	?verb conll:POS ?vPos FILTER(strstarts(str(?vPos),'V'))				# a verb
+	{ ?noun conll:BASE "ki". ?noun conll:SHIFT/conll:BASE "aŋ₂". } 		# "ki ... aŋ₂"
+	# UNION { ... }														# add more patterns
+	OPTIONAL { ?last conll:SHIFT ?noun }
+};
+
+# (2) other patterns 
+

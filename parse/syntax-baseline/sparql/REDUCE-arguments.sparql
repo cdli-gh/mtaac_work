@@ -1,0 +1,32 @@
+# Ncase V => N -case-> V
+
+prefix : <http://oracc.museum.upenn.edu/etcsri/>
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+DELETE {
+	?last conll:SHIFT ?noun.
+	?noun conll:SHIFT ?verb.
+} INSERT {
+	?noun conll:REDUCE ?verb; conll:EDGE ?case.
+	?last conll:SHIFT ?verb.
+} WHERE {
+	{ ?noun conll:POS ?pos FILTER(strends(str(?pos),'N')). }			# a noun
+	UNION 
+	{ ?noun conll:NOM []. MINUS { ?noun ^conll:SHIFT+/conll:BASE "lu₂" } }	# or nominalized noun (if not resolvable as a relative clause)
+	?noun conll:CASE ?case. 											# with case
+	?noun conll:SHIFT ?verb.											# that precedes
+	?verb conll:POS ?vPos FILTER(strstarts(str(?vPos),'V'))				# a verb
+	FILTER(NOT EXISTS { ?arg conll:REDUCE ?verb. ?arg conll:EDGE ?case. })			# which does not have the same kind of argument yet
+	OPTIONAL {?last conll:SHIFT ?noun. }
+};
+
+# pruning (this can happen if the update above applies to two overlapping subsequences)
+DELETE {
+	?a conll:SHIFT ?next.
+} WHERE {
+	?a conll:SHIFT ?next.
+	?a conll:REDUCE []
+}

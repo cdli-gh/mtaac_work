@@ -1,0 +1,124 @@
+# No N(case) => Ncase <-appos- N
+# exception: apply only if No is not lu₂ or no nominalized verb follows
+
+# normally this also includes coordination, however, explicit coordination is possible, as well
+# N CNJ N => (N <-cc- CNJ) <-conj- N
+# conjunctions aren't obligatory in Sumerian, but occur as loans from Akkadian, e.g., "honey, butter and wine", resp.
+	# s1_23  lal₃              BASE lal₃ CASE ABS GW syrup MORPH2 N1=STEM.N5=ABS POS N
+	# s1_24  i₃-nun            BASE i₃-nun CASE ABS GW ghee MORPH2 N1=STEM.N5=ABS POS N
+	# s1_25  u₃                BASE u₃ GW and MORPH2 N1=STEM POS CNJ
+	# s1_26  ŋeštin            BASE ŋeštin CASE ABS GW vine MORPH2 N1=STEM.N5=ABS POS N
+	
+prefix : <http://oracc.museum.upenn.edu/etcsri/>
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# (1) explicit (binary) coordination (n-ary conjunction currently modelled as apposition + conjunction)
+DELETE {
+	?next conll:SHIFT ?after.
+	?last conll:SHIFT ?conj.
+	?conj conll:SHIFT ?next.
+} INSERT {
+	?last conll:SHIFT ?after.
+	?conj conll:REDUCE ?last; conll:EDGE "cc".
+	?next conll:REDUCE ?last; conll:EDGE "conj".
+	?last conll:CASE ?case.
+} WHERE {
+	?conj conll:POS "CNJ".
+	?last conll:SHIFT ?conj; conll:POS ?pos.	# same POS
+	?conj conll:SHIFT ?next. ?next conll:POS ?pos.
+	{ 
+		?conj conll:POS "CNJ"; conll:SHIFT/conll:CASE ?case; ^conll:SHIFT/conll:CASE ?case.	# same CASE (if defined)
+	} UNION { 
+		?conj conll:POS "CNJ". FILTER(NOT EXISTS { ?conj conll:SHIFT/conll:CASE [] })
+	} UNION {
+		?conj conll:POS "CNJ". FILTER(NOT EXISTS { ?conj ^conll:SHIFT/conll:CASE [] })
+	}
+	OPTIONAL { ?last conll:CASE ?case }
+	OPTIONAL { ?next conll:CASE ?case }
+	OPTIONAL { ?next conll:SHIFT ?after. }
+};
+
+# (1a) expand conjunction to one step back, only if explicit case set (otherwise, this yields appos)
+DELETE {
+	?conj conll:REDUCE ?head.
+	?conjunct conll:REDUCE ?head.
+	?head conll:SHIFT ?next.
+} INSERT {
+	?head conll:REDUCE ?last; conll:EDGE "conj".
+	?conj conll:REDUCE ?last.
+	?conjunct conll:REDUCE ?last.
+	?last conll:SHIFT ?next.
+} WHERE {
+	?conj conll:EDGE "cc".
+	?conj conll:REDUCE ?head.
+	?head conll:CASE ?case.
+	?head conll:POS ?pos.
+	?last conll:SHIFT ?head.
+	?last conll:CASE ?case.
+	?last conll:POS ?pos.
+	?conjunct conll:REDUCE ?head; conll:EDGE "conj".
+	OPTIONAL { ?head conll:SHIFT ?next }
+}; 
+
+# (2) "regular" apposition, incl. unmarked conjunction
+DELETE {
+	?dep conll:SHIFT ?next.
+	?head conll:SHIFT ?dep.
+} INSERT {
+	?dep conll:REDUCE ?head.
+	?dep conll:EDGE "appos".
+	?head conll:SHIFT ?next.
+	?head conll:CASE ?case.
+} WHERE {
+	{ ?head conll:POS ?pos FILTER(strends(str(?pos),'N')). }		# a noun
+	UNION
+	{ ?head conll:NOM []. }											# or a nominalized verb ## TO BE CHECKED!
+	MINUS { ?head conll:CASE [] }.									# without case
+	?head conll:SHIFT ?dep.											# that precedes
+	{ ?dep conll:POS ?posDep FILTER(strends(str(?posDep), 'N')).	# another noun
+	} UNION {														# or
+	  ?head conll:NOM []											# a nominalized verb
+	}
+	?dep conll:CASE ?case. 											# with case
+	MINUS {															# except when head is lu₂ and precedes a nominalized verb
+		?head conll:WORD 'lu₂'; conll:SHIFT+/conll:NOM [].
+	}
+	OPTIONAL { ?dep conll:SHIFT ?next. }
+};
+
+# (4) flatten apposition sequences: append to grandparent (label-specific)
+# exception: do not flatten if parent is a relational noun (e.g., lugal)
+# exception to exception: flatten if the relational noun is in a list of the same relational nouns, e.g., lugal X lugal Y
+DELETE {
+	?appos conll:REDUCE ?parent.
+} INSERT {
+	?appos conll:REDUCE ?grandparent.
+} WHERE {
+	?appos conll:EDGE "appos"; conll:REDUCE ?parent.
+	?parent conll:EDGE "appos"; conll:REDUCE ?grandparent.
+	MINUS { ?appos conll:REDUCE/conll:BASE "lugal". 								# add other relational nouns
+		MINUS { ?appos conll:BASE ?aBase FILTER(?aBase="lugal" || ?aBase="lu₂") } 	# except in list of titles
+	}
+};
+
+# (5) perculate genitives to known possessors
+# specific to certain words that often act as possessors, e.g., lugal
+DELETE {
+	?appos conll:EDGE "GEN".
+	?gen conll:EDGE "appos".
+} INSERT {
+	?appos conll:EDGE "appos".
+	?gen conll:EDGE "GEN".
+} WHERE {
+	?appos conll:EDGE "GEN".
+	?appos conll:REDUCE ?gen.
+	?gen conll:EDGE "appos".
+	?gen conll:BASE ?gword.
+	FILTER(?gword!="lugal")								# expand with other possessor words
+	?gen conll:REDUCE ?head.
+	?head conll:BASE ?hword.
+	FILTER(?hword="lugal") 								# expand with other possessor words
+};

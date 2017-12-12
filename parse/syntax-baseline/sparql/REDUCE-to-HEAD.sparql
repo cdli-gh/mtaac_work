@@ -1,0 +1,23 @@
+# remove conll:SHIFT, update conll:HEAD to conll:REDUCE
+
+prefix : <http://oracc.museum.upenn.edu/etcsri/>
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+DELETE {
+	?a conll:SHIFT ?b
+} WHERE {
+	?a conll:SHIFT ?b
+};
+
+DELETE {
+	?a conll:HEAD ?sentence.
+	?a conll:REDUCE ?b.
+} INSERT {
+	?a conll:HEAD ?b.
+} WHERE {
+	?a conll:REDUCE ?b.
+	OPTIONAL { ?a conll:HEAD ?sentence }
+};

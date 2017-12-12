@@ -1,0 +1,28 @@
+# Ngen N => N <-gen- N
+# exceptionally, genitives can be preposed, e.g., 
+# s1_16 . \             alan-ba                BASE alan CASE GEN GW statue MORPH2 N1=STEM.N3=DEM2.N5=GEN POS N POSS DEM2
+# s1_17 . \             {d}amar-{d}suen        BASE {d}amar-{d}suen CASE ABS GW 1 MORPH2 N1=NAME POS RN
+# to be used for "stranded" genitives after case-marked nouns
+
+prefix : <http://oracc.museum.upenn.edu/etcsri/>
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+DELETE {
+	?gen conll:SHIFT ?head.
+	?head conll:SHIFT ?next.
+} INSERT {
+	?head conll:REDUCE ?gen.
+	?head conll:EDGE "GEN".
+	?gen conll:SHIFT ?next.
+	?gen conll:CASE ?case.
+} WHERE {
+	?gen conll:POS ?pos FILTER(strends(?pos,"N")).	# a noun
+	?gen conll:CASE "GEN".							# in genitive
+	?gen conll:SHIFT ?head.							# and precedes
+	?head conll:POS ?hpos FILTER(strends(?hpos,"N"))	# another noun ### to check: proper names only?
+	OPTIONAL { ?head conll:SHIFT ?next }
+	OPTIONAL { ?head conll:CASE ?case. }
+};

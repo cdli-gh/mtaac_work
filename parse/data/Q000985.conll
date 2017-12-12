@@ -1,0 +1,98 @@
+# project: etcsri 
+# textid: Q000985 
+# file: 00atf/ETCSRI_RIME3_2.atf 
+# langs: sux 
+# type: text 
+# xml:id: Q000985.U0 
+# bracketing_level: 0 
+# m/@k=genre : Royal Inscription 
+# m/@k=period : Ur III 
+
+# ID	WORD	BASE	CF	EPOS	FORM	GW	LANG	MORPH	MORPH2	NORM	POS	SENSE	HEAD	EDGE	CF_MWE	GW_MWE	SENSE_MWE	POS_MWE	EPOS_MWE
+
+# Q000985.1
+1	{d}amar-{d}suen	{d}amar-{d}suen	Amarsuenak	RN	{d}amar-{d}suen	1	sux	N1=Amarsuenak	N1=NAME	Amarsuenak	RN	3rd king of the 3rd dynasty of Urim	_	_	_	_	_	_	_
+
+# Q000985.2
+1	nibru{ki}-a	nibru{ki}	Nibru	SN	nibru{ki}-a	1	sux	N1=Nibru.N5='a	N1=NAME.N5=L1	Nibru.'a	SN	1	_	_	_	_	_	_	_
+
+# Q000985.3
+1	{d}en-lil₂-le	{d}en-lil₂	Enlil	DN	{d}en-lil₂-le	1	sux	N1=Enlil.N5=e	N1=NAME.N5=ERG	Enlil.e	DN	1	_	_	_	_	_	_	_
+
+# Q000985.4
+1	mu	mu	mu	N	mu\abs	name	sux	N1=mu.N5=ø	N1=STEM.N5=ABS	mu.ø	N	name	_	_	mu pad	nominate	to nominate, to proclaim one's name publicly	V/t	V/t
+2	pad₃-da	pad₃	pad	V/t	pad₃-da	find	sux	NV2=pad.NV4='a	NV2=STEM.NV4=SUB	pad.'a	V/t	to find, to discover	1	mwe	_	_	_	_	_
+
+# Q000985.5
+1	saŋ-us₂	saŋ-us₂	saŋus	V/i	saŋ-us₂	constant	sux	NV2=saŋus	NV2=STEM	saŋus	V/i	(to be) constant, regular	_	_	_	_	_	_	_
+
+# Q000985.6
+1	e₂	e₂	e	N	e₂	house	sux	N1=e	N1=STEM	e	N	house, temple	_	_	_	_	_	_	_
+2	{d}en-lil₂-ka	{d}en-lil₂	Enlil	DN	{d}en-lil₂-ka	1	sux	N1=Enlil.N5=ak.N5=ak	N1=NAME.N5=GEN.N5=GEN	Enlil.ak.ak	DN	1	_	_	_	_	_	_	_
+
+# Q000985.7
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king	_	_	_	_	_	_	_
+2	kalag-ga	kalag	kalag	V/i	kalag-ga	strong	sux	NV2=kalag.NV4='a	NV2=STEM.NV4=SUB	kalag.'a	V/i	strong	_	_	_	_	_	_	_
+
+# Q000985.8
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king	_	_	_	_	_	_	_
+2	urim₅{ki}-ma	urim₅{ki}	Urim	SN	urim₅{ki}-ma	1	sux	N1=Urim.N5=ak	N1=NAME.N5=GEN	Urim.ak	SN	1	_	_	_	_	_	_	_
+
+# Q000985.9
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king	_	_	_	_	_	_	_
+2	an-ub-da	an-ub-da	anubda	N	an-ub-da	quarter	sux	N1=anubda	N1=STEM	anubda	N	a cosmographic or geographic term, quarter (of the universe)	_	_	_	_	_	_	_
+3	limmu₂-ba-me	limmu₂	limmu	NU	limmu₂-ba-me	four	sux	NV2=limmu.N3=bi.N5=ak.N5=ø.N6=men	NV2=STEM.N3=3-SG-NH-POSS.N5=GEN.N5=ABS.N6=COP-1-SG	limmu.bi.ak.ø.men	NU	four	_	_	_	_	_	_	_
+
+# Q000985.10
+1	alan-ba	alan	alan	N	alan-ba\dem2	statue	sux	N1=alan.N3=bi.N5=ak	N1=STEM.N3=DEM2.N5=GEN	alan.bi.ak	N	statue	_	_	_	_	_	_	_
+
+# Q000985.11
+1	{d}amar-{d}suen	{d}amar-{d}suen	Amarsuenak	RN	{d}amar-{d}suen	1	sux	N1=Amarsuenak	N1=NAME	Amarsuenak	RN	3rd king of the 3rd dynasty of Urim	_	_	_	_	_	_	_
+2	ki	ki	ki	N	ki\abs	place	sux	N1=ki.N5=ø	N1=STEM.N5=ABS	ki.ø	N	place	_	_	ki aŋ	love	to love	V/t	V/t
+3	aŋ₂	aŋ₂	aŋ	V/t	aŋ₂	measure	sux	NV2=aŋ	NV2=STEM	aŋ	V/t	measure	2	mwe	_	_	_	_	_
+4	urim₅{ki}-ma	urim₅{ki}	Urim	SN	urim₅{ki}-ma\abs	1	sux	N1=Urim.N5=ak.N5=ø	N1=NAME.N5=GEN.N5=ABS	Urim.ak.ø	SN	1	_	_	_	_	_	_	_
+
+# Q000985.12
+1	mu-bi-im	mu	mu	N	mu-bi-im	name	sux	N1=mu.N3=bi.N5=ø.N6=am	N1=STEM.N3=3-SG-NH-POSS.N5=ABS.N6=COP-3-SG	mu.bi.ø.am	N	name	_	_	_	_	_	_	_
+
+# Q000985.13
+1	alan-ba	alan	alan	N	alan-ba\dem2	statue	sux	N1=alan.N3=bi.N5=ak	N1=STEM.N3=DEM2.N5=GEN	alan.bi.ak	N	statue	_	_	_	_	_	_	_
+
+# Q000985.14
+1	lu₂	lu₂	lu	N	lu₂	person	sux	N1=lu	N1=STEM	lu	N	person	_	_	_	_	_	_	_
+2	ki	ki	ki	N	ki	place	sux	N1=ki	N1=STEM	ki	N	place	_	_	_	_	_	_	_
+3	gub-ba-bi	gub	gub	V/i	gub-ba-bi\com	stand	sux	NV2=gub.NV4='a.N3=bi.N5=da	NV2=STEM.NV4=SUB.N3=3-SG-NH-POSS.N5=COM	gub.'a.bi.da	V/i	stand	_	_	_	_	_	_	_
+
+# Q000985.15
+1	ib₂-da-ab-kur₂-re-a	kur₂	kur	V/t	ib₂-da-ab-kur₂-re-a	different	sux	V2=i.V5=b.V8=da.V11=b.V12=kur.V14=e.V15='a	V2=FIN.V5=3-NH.V8=COM.V11=3-SG-NH-P.V12=STEM.V14=3-SG-A.V15=SUB	i.b.da.b.kur.e.'a	V/i	to remove something (= ABS) from somewhere (= COM)	_	_	_	_	_	_	_
+
+# Q000985.16
+1	barag-sig₉-ga-bi	barag-sig₉-ga	baragsiga	N	barag-sig₉-ga-bi\abs	shrine	sux	N1=baragsiga.N3=bi.N5=ø	N1=STEM.N3=3NH.POSS.N5=ABS	baragsiga.bi.ø	N	a low socle for cultic purposes, a pedestal, an altar	_	_	_	_	_	_	_
+
+# Q000985.17
+1	i₃-burₓ(|KA×ŠU|)-re-a	burₓ(|KA×ŠU|)	bur	V/t	i₃-burₓ(|KA×ŠU|)-re-a	tear	sux	V2=i.V12=bur.V14=e.V15='a.N5=x	V2=FIN.V12=STEM.V14=3-SG-A.V15=SUB.N5=X	i.bur.e.'a.x	V/t	tear	_	_	_	_	_	_	_
+
+# Q000985.18
+1	{d}nanna	{d}nanna	Nanna	DN	{d}nanna	1	sux	N1=Nanna	N1=NAME	Nanna	DN	1	_	_	_	_	_	_	_
+
+# Q000985.19
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king	_	_	_	_	_	_	_
+2	urim₅{ki}-ma-ke₄	urim₅{ki}	Urim	SN	urim₅{ki}-ma-ke₄	1	sux	N1=Urim.N5=ak.N5=e	N1=NAME.N5=GEN.N5=ERG	Urim.ak.e	SN	1	_	_	_	_	_	_	_
+
+# Q000985.20
+1	{d}nin-gal	{d}nin-gal	Ningal	DN	{d}nin-gal	1	sux	N1=Ningal	N1=NAME	Ningal	DN	1	_	_	_	_	_	_	_
+
+# Q000985.21
+1	ama	ama	ama	N	ama	mother	sux	N1=ama	N1=STEM	ama	N	mother	_	_	_	_	_	_	_
+2	urim₅{ki}-ma-ke₄	urim₅{ki}	Urim	SN	urim₅{ki}-ma-ke₄	1	sux	N1=Urim.N5=ak.N5=e	N1=NAME.N5=GEN.N5=ERG	Urim.ak.e	SN	1	_	_	_	_	_	_	_
+
+# Q000985.22
+1	nam	nam	nam	N	nam\abs	fate	sux	N1=nam.N5=ø	N1=STEM.N5=ABS	nam.ø	N	fate	_	_	nam kud	curse	to curse	V/t	V/t
+2	ha-ba-an-da-kuru₅-ne	kuru₅	kud	V/t	ha-ba-an-da-kuru₅-ne	cut	sux	V1=ha.V5=ba.V6=nn.V8=da.V12=kud.V14=enee	V1=MOD1.V5=MID.V6=3-SG-H.V8=COM.V12=STEM.V14=3-PL-A	ha.ba.nn.da.kud.enee	V/t	cut	1	mwe	_	_	_	_	_
+
+# Q000985.23
+1	numun-na-ni	numun	numun	N	numun-na-ni\abs	seed	sux	N1=numun.N3=ani.N5=ø	N1=STEM.N3=3-SG-H-POSS.N5=ABS	numun.ani.ø	N	seed	_	_	_	_	_	_	_
+
+# Q000985.24
+1	he₂-eb-til-le-ne	til	til	V/i	he₂-eb-til-le-ne	complete	sux	V1=ha.V2=i.V11=b.V12=til.V14=enee	V1=MOD1.V2=FIN.V11=3-SG-NH-P.V12=STEM.V14=3-PL-A	ha.i.b.til.enee	V/i	complete	_	_	_	_	_	_	_
+

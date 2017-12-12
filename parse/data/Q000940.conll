@@ -1,0 +1,59 @@
+# project: etcsri 
+# textid: Q000940 
+# file: 00atf/ETCSRI_RIME3_2.atf 
+# langs: sux 
+# type: text 
+# xml:id: Q000940.U0 
+# bracketing_level: 0 
+# m/@k=genre : Royal Inscription 
+# m/@k=period : Ur III 
+
+# ID	WORD	BASE	CF	EPOS	FORM	GW	LANG	MORPH	MORPH2	NORM	POS	SENSE	HEAD	EDGE	CF_MWE	GW_MWE	SENSE_MWE	POS_MWE	EPOS_MWE
+
+# Q000940.1
+1	{d}nanna	{d}nanna	Nanna	DN	{d}nanna	1	sux	N1=Nanna	N1=NAME	Nanna	DN	1	_	_	_	_	_	_	_
+
+# Q000940.2
+1	dumu-saŋ	dumu-saŋ	dumusaŋ	N	dumu-saŋ	first-born	sux	N1=dumusaŋ	N1=STEM	dumusaŋ	N	first-born	_	_	_	_	_	_	_
+
+# Q000940.3
+1	{d}en-lil₂-la₂	{d}en-lil₂	Enlil	DN	{d}en-lil₂-la₂	1	sux	N1=Enlil.N5=ak	N1=NAME.N5=GEN	Enlil.ak	DN	1	_	_	_	_	_	_	_
+
+# Q000940.4
+1	lugal-a-ni	lugal	lugal	N	lugal-a-ni\dat	king	sux	N1=lugal.N3=ani.N5=ra	N1=STEM.N3=3-SG-H-POSS.N5=DAT-H	lugal.ani.ra	N	king	_	_	_	_	_	_	_
+
+# Q000940.5
+1	ur-{d}namma	ur-{d}namma	Urnammak	RN	ur-{d}namma	1	sux	N1=Urnammak	N1=NAME	Urnammak	RN	1st king of the 3rd dynasty of Urim	_	_	_	_	_	_	_
+
+# Q000940.6
+1	nita	nita	nita	N	nita	male	sux	N1=nita	N1=STEM	nita	N	male	_	_	_	_	_	_	_
+2	kalag-ga	kalag	kalag	V/i	kalag-ga	strong	sux	NV2=kalag.NV4='a	NV2=STEM.NV4=SUB	kalag.'a	V/i	strong	_	_	_	_	_	_	_
+
+# Q000940.7
+1	en	en	en	N	en	lord	sux	N1=en	N1=STEM	en	N	lord	_	_	_	_	_	_	_
+2	unug{ki}-ga	unug{ki}	Unug	SN	unug{ki}-ga	1	sux	N1=Unug.N5=ak	N1=NAME.N5=GEN	Unug.ak	SN	1	_	_	_	_	_	_	_
+
+# Q000940.8
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king	_	_	_	_	_	_	_
+2	urim₅{ki}-ma	urim₅{ki}	Urim	SN	urim₅{ki}-ma	1	sux	N1=Urim.N5=ak	N1=NAME.N5=GEN	Urim.ak	SN	1	_	_	_	_	_	_	_
+
+# Q000940.9
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king	_	_	_	_	_	_	_
+2	ki-en-gi	ki-en-gi	Kiengir	GN	ki-en-gi	1	sux	N1=Kiengir	N1=NAME	Kiengir	GN	1	_	_	_	_	_	_	_
+3	ki-uri-ke₄	ki-uri	Akkad	GN	ki-uri-ke₄	1	sux	N1=Akkad.N5=ak.N5=e	N1=NAME.N5=GEN.N5=ERG	Akkad.ak.e	GN	1	_	_	_	_	_	_	_
+
+# Q000940.10
+1	e₂-temen-ni₂-guru₃	e₂-temen-ni₂-guru₃	Etemenniguru	TN	e₂-temen-ni₂-guru₃	1	sux	N1=Etemenniguru	N1=NAME	Etemenniguru	TN	1	_	_	_	_	_	_	_
+
+# Q000940.11
+1	e₂	e₂	e	N	e₂	house	sux	N1=e	N1=STEM	e	N	house, temple	_	_	_	_	_	_	_
+2	ki	ki	ki	N	ki\abs	place	sux	N1=ki.N5=ø	N1=STEM.N5=ABS	ki.ø	N	place	_	_	ki aŋ	love	to love	V/t	V/t
+3	aŋ₂-ŋa₂-ni	aŋ₂	aŋ	V/t	aŋ₂-ŋa₂-ni\abs	measure	sux	NV2=aŋ.N3=ani.N5=ø	NV2=STEM.N3=3-SG-H-POSS.N5=ABS	aŋ.ani.ø	V/t	measure	2	mwe	_	_	_	_	_
+
+# Q000940.12
+1	mu-na-du₃	du₃	du	V/t	mu-na-du₃	build	sux	V4=mu.V6=nn.V7=a.V11=n.V12=du.V14=ø	V4=VEN.V6=3-SG-H.V7=DAT.V11=3-SG-H-A.V12=STEM.V14=3-SG-P	mu.nn.a.n.du.ø	V/t	to build	_	_	_	_	_	_	_
+
+# Q000940.13
+1	ki-be₂	ki	ki	N	ki-be₂\n5el3	place	sux	N1=ki.N3=bi.N5=e	N1=STEM.N3=3-SG-NH-POSS.N5=L3-NH	ki.bi.e	N	place	_	_	_	_	_	_	_
+2	mu-na-gi₄	gi₄	gi	V/i	mu-na-gi₄	turn	sux	V4=mu.V6=nn.V7=a.V11=n.V12=gi.V14=ø	V4=VEN.V6=3-SG-H.V7=DAT.V11=3-SG-H-A.V12=STEM.V14=3-SG-P	mu.nn.a.n.gi.ø	V/i	turn	_	_	_	_	_	_	_
+

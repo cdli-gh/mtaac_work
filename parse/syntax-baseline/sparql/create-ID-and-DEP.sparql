@@ -1,0 +1,45 @@
+# (re)create ID and DEP, i.e., running number per sentence
+
+prefix : <http://oracc.museum.upenn.edu/etcsri/>
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# (0) remove old IDs, if any
+DELETE {
+	?a conll:ID ?id
+} WHERE {
+	?a conll:ID ?id
+};
+
+# (1) create new ids (running number for words, 0 for sentence)
+INSERT {
+	?a conll:ID ?id
+} WHERE {
+	?a a nif:Word.
+	{ SELECT ?a (COUNT(DISTINCT ?pre) AS ?id)
+	  WHERE { ?a a nif:Word. ?pre nif:nextWord* ?a }
+	  GROUP BY ?a
+	}
+};
+
+INSERT {
+	?a conll:ID "0".
+} WHERE {
+	?a a nif:Sentence.
+};
+
+# (2) remove old DEP, if any
+DELETE {
+	?a conll:DEP ?dep
+} WHERE {
+	?a conll:DEP ?dep
+};
+
+# (3) restore DEP from conll:HEAD and conll:ID
+INSERT {
+	?a conll:DEP ?id
+} WHERE {
+	?a conll:HEAD/conll:ID ?id
+};

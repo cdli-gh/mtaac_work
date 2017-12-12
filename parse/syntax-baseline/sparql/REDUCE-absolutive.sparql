@@ -1,0 +1,21 @@
+# N(abs) V => N -abs-> V
+
+prefix : <http://oracc.museum.upenn.edu/etcsri/>
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+DELETE {
+	?last conll:SHIFT ?noun.
+	?noun conll:SHIFT ?verb.
+} INSERT {
+	?noun conll:REDUCE ?verb; conll:EDGE ?case.
+	?last conll:SHIFT ?verb.
+} WHERE {
+	?noun conll:POS ?pos FILTER(strends(str(?pos),'N')).				# a noun
+	?noun conll:CASE ?case FILTER(?case="ABS")							# in absolutive case
+	?noun conll:SHIFT ?verb.											# that precedes
+	?verb conll:POS ?vPos FILTER(strstarts(str(?vPos),'V'))				# a verb
+	OPTIONAL {?last conll:SHIFT ?noun. }
+}

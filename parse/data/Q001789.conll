@@ -1,0 +1,45 @@
+# project: etcsri 
+# textid: Q001789 
+# file: 00atf/ETCSRI_RIME3_2.atf 
+# langs: sux 
+# type: text 
+# xml:id: Q001789.U0 
+# bracketing_level: 0 
+# m/@k=genre : Royal Inscription 
+# m/@k=period : Ur III 
+
+# ID	WORD	BASE	CF	EPOS	FORM	GW	LANG	MORPH	MORPH2	NORM	POS	SENSE	HEAD	EDGE	CF_MWE	GW_MWE	SENSE_MWE	POS_MWE	EPOS_MWE
+
+# Q001789.1
+1	{d}amar-{d}suen	{d}amar-{d}suen	Amarsuenak	RN	{d}amar-{d}suen	1	sux	N1=Amarsuenak	N1=NAME	Amarsuenak	RN	3rd king of the 3rd dynasty of Urim	_	_	_	_	_	_	_
+
+# Q001789.2
+1	nibru{ki}-a	nibru{ki}	Nibru	SN	nibru{ki}-a	1	sux	N1=Nibru.N5='a	N1=NAME.N5=L1	Nibru.'a	SN	1	_	_	_	_	_	_	_
+
+# Q001789.3
+1	{d}en-lil₂-le	{d}en-lil₂	Enlil	DN	{d}en-lil₂-le	1	sux	N1=Enlil.N5=e	N1=NAME.N5=ERG	Enlil.e	DN	1	_	_	_	_	_	_	_
+
+# Q001789.4
+1	mu	mu	mu	N	mu\abs	name	sux	N1=mu.N5=ø	N1=STEM.N5=ABS	mu.ø	N	name	_	_	mu pad	nominate	to nominate, to proclaim one's name publicly	V/t	V/t
+2	pad₃-da	pad₃	pad	V/t	pad₃-da	find	sux	NV2=pad.NV4='a	NV2=STEM.NV4=SUB	pad.'a	V/t	to find, to discover	1	mwe	_	_	_	_	_
+
+# Q001789.5
+1	saŋ-us₂	saŋ-us₂	saŋus	V/i	saŋ-us₂	constant	sux	NV2=saŋus	NV2=STEM	saŋus	V/i	(to be) constant, regular	_	_	_	_	_	_	_
+
+# Q001789.6
+1	e₂	e₂	e	N	e₂	house	sux	N1=e	N1=STEM	e	N	house, temple	_	_	_	_	_	_	_
+2	{d}en-lil₂-ka	{d}en-lil₂	Enlil	DN	{d}en-lil₂-ka	1	sux	N1=Enlil.N5=ak.N5=ak	N1=NAME.N5=GEN.N5=GEN	Enlil.ak.ak	DN	1	_	_	_	_	_	_	_
+
+# Q001789.7
+1	nita	nita	nita	N	nita	male	sux	N1=nita	N1=STEM	nita	N	male	_	_	_	_	_	_	_
+2	kalag-ga	kalag	kalag	V/i	kalag-ga	strong	sux	NV2=kalag.NV4='a	NV2=STEM.NV4=SUB	kalag.'a	V/i	strong	_	_	_	_	_	_	_
+
+# Q001789.8
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king	_	_	_	_	_	_	_
+2	urim₅{ki}-ma	urim₅{ki}	Urim	SN	urim₅{ki}-ma	1	sux	N1=Urim.N5=ak	N1=NAME.N5=GEN	Urim.ak	SN	1	_	_	_	_	_	_	_
+
+# Q001789.9
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king	_	_	_	_	_	_	_
+2	an-ub-da	an-ub-da	anubda	N	an-ub-da	quarter	sux	N1=anubda	N1=STEM	anubda	N	a cosmographic or geographic term, quarter (of the universe)	_	_	_	_	_	_	_
+3	limmu₂-ba	limmu₂	limmu	NU	limmu₂-ba\abs	four	sux	NV2=limmu.N3=bi.N5=ak.N5=ø	NV2=STEM.N3=3-SG-NH-POSS.N5=GEN.N5=ABS	limmu.bi.ak.ø	NU	four	_	_	_	_	_	_	_
+

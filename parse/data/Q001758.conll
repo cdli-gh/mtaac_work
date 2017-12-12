@@ -1,0 +1,54 @@
+# project: etcsri 
+# textid: Q001758 
+# file: 00atf/ETCSRI_RIME3_2.atf 
+# langs: sux 
+# type: text 
+# xml:id: Q001758.U0 
+# bracketing_level: 0 
+# m/@k=genre : Royal Inscription 
+# m/@k=period : Ur III 
+
+# ID	WORD	BASE	CF	EPOS	FORM	GW	LANG	MORPH	MORPH2	NORM	POS	SENSE	HEAD	EDGE	CF_MWE	GW_MWE	SENSE_MWE	POS_MWE	EPOS_MWE
+
+# Q001758.1
+1	{d}lamma	{d}lamma	lammar	N	{d}lamma	deity	sux	N1=lammar	N1=STEM	lammar	N	deity	_	_	_	_	_	_	_
+
+# Q001758.2
+1	nin-a-ni	nin	nin	N	nin-a-ni\dat	lady	sux	N1=nin.N3=ani.N5=ra	N1=STEM.N3=3-SG-H-POSS.N5=DAT-H	nin.ani.ra	N	lady	_	_	_	_	_	_	_
+
+# Q001758.3
+1	nam-til₃	nam-til₃	namtil	N	nam-til₃	life	sux	N1=namtil	N1=STEM	namtil	N	life	_	_	_	_	_	_	_
+
+# Q001758.4
+1	{d}šul-gi	{d}šul-gi	Šulgir	RN	{d}šul-gi	1	sux	N1=Šulgir	N1=NAME	Šulgir	RN	2nd king of the 3rd dynasty of Urim	_	_	_	_	_	_	_
+
+# Q001758.5
+1	nita	nita	nita	N	nita	male	sux	N1=nita	N1=STEM	nita	N	male	_	_	_	_	_	_	_
+2	kalag-ga	kalag	kalag	V/i	kalag-ga	strong	sux	NV2=kalag.NV4='a	NV2=STEM.NV4=SUB	kalag.'a	V/i	strong	_	_	_	_	_	_	_
+
+# Q001758.6
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king	_	_	_	_	_	_	_
+2	urim₅{ki}-ma-ka-še₃	urim₅{ki}	Urim	SN	urim₅{ki}-ma-ka-še₃	1	sux	N1=Urim.N5=ak.N5=ak.N5=še	N1=NAME.N5=GEN.N5=GEN.N5=TERM	Urim.ak.ak.še	SN	1	_	_	_	_	_	_	_
+
+# Q001758.7
+1	{d}ba-u₂-nin-am₃	{d}ba-u₂-nin-am₃	Bauninam	PN	{d}ba-u₂-nin-am₃	1	sux	N1=Bauninam	N1=NAME	Bauninam	PN	1	_	_	_	_	_	_	_
+
+# Q001758.8
+1	zabar-dab₅	zabar-dab₅	zabardab	N	zabar-dab₅	official	sux	N1=zabardab	N1=STEM	zabardab	N	an official	_	_	_	_	_	_	_
+
+# Q001758.9
+1	ur-{d}nin-ŋir₂-su	ur-{d}nin-ŋir₂-su	Urninŋirsu	PN	ur-{d}nin-ŋir₂-su	3	sux	N1=Urninŋirsu	N1=NAME	Urninŋirsu	PN	3	_	_	_	_	_	_	_
+
+# Q001758.10
+1	en	en	en	N	en	priest	sux	N1=en	N1=STEM	en	N	priest	_	_	_	_	_	_	_
+2	ki	ki	ki	N	ki\abs	place	sux	N1=ki.N5=ø	N1=STEM.N5=ABS	ki.ø	N	place	_	_	ki aŋ	love	to love	V/t	V/t
+3	aŋ₂	aŋ₂	aŋ	V/t	aŋ₂	measure	sux	NV2=aŋ	NV2=STEM	aŋ	V/t	measure	2	mwe	_	_	_	_	_
+4	{d}nanše-ka-ke₄	{d}nanše	Nanše	DN	{d}nanše-ka-ke₄	1	sux	N1=Nanše.N5=ak.N5=ak.N5=e	N1=NAME.N5=GEN.N5=GEN.N5=ERG	Nanše.ak.ak.e	DN	1	_	_	_	_	_	_	_
+
+# Q001758.11
+1	hi-li	hi-li	hili	N	hi-li	wig	sux	N1=hili	N1=STEM	hili	N	a ritual wig	_	_	_	_	_	_	_
+2	nam-munus-ka-ni	nam-munus	nammunus	N	nam-munus-ka-ni\abs	femininity	sux	N1=nammunus.N5=ak.N3=ani.N5=ø	N1=STEM.N5=GEN.N3=3-SG-H-POSS.N5=ABS	nammunus.ak.ani.ø	N	feminity	_	_	_	_	_	_	_
+
+# Q001758.12
+1	mu-na-dim₂	dim₂	dim	V/t	mu-na-dim₂	create	sux	V4=mu.V6=nn.V7=a.V11=n.V12=dim.V14=ø	V4=VEN.V6=3-SG-H.V7=DAT.V11=3-SG-H-A.V12=STEM.V14=3-SG-P	mu.nn.a.n.dim.ø	V/t	create	_	_	_	_	_	_	_
+

@@ -1,0 +1,51 @@
+# create a compact representation for parsing-relevant morphological features
+# remove MORPH2 for nouns (for readability)
+
+prefix : <http://oracc.museum.upenn.edu/etcsri/>
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# (1) NV2/V15 ("adjective", i.e., nominalized verb)
+INSERT {
+	?a conll:NOM ?n.
+} WHERE {
+	?a conll:MORPH2 ?morph2. FILTER(regex(str(?morph2),"SUB|NV[0-9]+="))
+	BIND(replace(
+			str(?morph2),
+			".*(=(SUB)|(NV[0-9]+=[^.]+)).*", "$2$3")
+	AS ?n)
+};
+
+# (2) N3 (possessive)
+INSERT {
+	?a conll:POSS ?n3.
+} WHERE {
+	?a conll:MORPH2 ?morph2. FILTER(contains(str(?morph2),"N3"))
+	BIND(replace(
+	     replace(
+		 replace(
+		 replace(
+			str(?morph2),
+			"V[0-9]+=[^.]*\\.?",""),
+			"N[^3]+=[^.]*\\.?",""),
+			"[^.=]*(=|$)",""),
+			"\\.$","")
+	AS ?n3)
+};
+
+# (3) N5 (case)
+INSERT {
+	?a conll:CASE ?n5.
+} WHERE {
+	?a conll:MORPH2 ?morph2. FILTER(contains(str(?morph2),"N5"))
+	BIND(replace(
+	     replace(
+		 replace(
+			str(?morph2),
+			"V[0-9]+=[^.]*\\.?",""),
+			"N[^5]+=[^.]*\\.?",""),
+			"[^.=]*=","")
+	AS ?n5)
+};

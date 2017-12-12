@@ -1,0 +1,42 @@
+# project: etcsri 
+# textid: Q000937 
+# file: 00atf/ETCSRI_RIME3_2.atf 
+# langs: sux 
+# type: text 
+# xml:id: Q000937.U0 
+# bracketing_level: 0 
+# m/@k=genre : Royal Inscription 
+# m/@k=period : Ur III 
+
+# ID	WORD	BASE	CF	EPOS	FORM	GW	LANG	MORPH	MORPH2	NORM	POS	SENSE
+
+# Q000937.1
+1	an	an	An	DN	an	1	sux	N1=AN	N1=NAME	AN	DN	1
+2	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king
+3	diŋir-re-ne	diŋir	diŋir	N	diŋir-re-ne\gen	deity	sux	N1=diŋir.N4=enee.N5=ak	N1=STEM.N4=PL.N5=GEN	diŋir.enee.ak	N	deity, personal god
+
+# Q000937.2
+1	lugal-a-ni	lugal	lugal	N	lugal-a-ni\dat	king	sux	N1=lugal.N3=ani.N5=ra	N1=STEM.N3=3-SG-H-POSS.N5=DAT-H	lugal.ani.ra	N	king
+
+# Q000937.3
+1	ur-{d}namma	ur-{d}namma	Urnammak	RN	ur-{d}namma	1	sux	N1=Urnammak	N1=NAME	Urnammak	RN	1st king of the 3rd dynasty of Urim
+
+# Q000937.4
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king
+2	urim₅{ki}-ma-ke₄	urim₅{ki}	Urim	SN	urim₅{ki}-ma-ke₄	1	sux	N1=Urim.N5=ak.N5=e	N1=NAME.N5=GEN.N5=ERG	Urim.ak.e	SN	1
+
+# Q000937.5
+1	kiri₆	kiri₆	kiri	N	kiri₆	orchard	sux	N1=kiri	N1=STEM	kiri	N	(fruit) plantation, orchard
+2	mah	mah	mah	V/i	mah\abs	great	sux	NV2=mah.N5=ø	NV2=mah.N5=ABS	mah.ø	V/i	great
+
+# Q000937.6
+1	mu-na-gub	gub	gub	V/i	mu-na-gub	stand	sux	V4=mu.V6=nn.V7=a.V11=n.V12=gub.V14=ø	V4=VEN.V6=3-SG-H.V7=DAT.V11=3-SG-H-A.V12=gub.V14=3-SG-P	mu.nn.a.n.gub.ø	V/i	stand
+
+# Q000937.7
+1	barag	barag	barag	N	barag\abs	dais	sux	N1=barag.N5=ø	N1=STEM.N5=ABS	barag.ø	N	dais
+2	ki	ki	ki	N	ki	place	sux	N1=ki	N1=STEM	ki	N	place
+3	sikil-la	sikil	sikil	V/i	sikil-la\n5al2	pure	sux	NV2=sikil.N5='a	NV2=STEM.N5=L2-NH	sikil.'a	V/i	(to be) pure
+
+# Q000937.8
+1	mu-na-du₃	du₃	du	V/t	mu-na-du₃	build	sux	V4=mu.V6=nn.V7=a.V11=n.V12=du.V14=ø	V4=VEN.V6=3-SG-H.V7=DAT.V11=3-SG-H-A.V12=STEM.V14=3-SG-P	mu.nn.a.n.du.ø	V/t	to build
+

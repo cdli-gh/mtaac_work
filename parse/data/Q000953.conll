@@ -1,0 +1,40 @@
+# project: etcsri 
+# textid: Q000953 
+# file: 00atf/ETCSRI_RIME3_2.atf 
+# langs: sux 
+# type: text 
+# xml:id: Q000953.U0 
+# bracketing_level: 0 
+# m/@k=genre : Royal Inscription 
+# m/@k=period : Ur III 
+
+# ID	WORD	BASE	CF	EPOS	FORM	GW	LANG	MORPH	MORPH2	NORM	POS	SENSE
+
+# Q000953.1
+1	{d}inana	{d}inana	Inanak	DN	{d}inana	1	sux	N1=Inanak	N1=NAME	Inanak	DN	1
+
+# Q000953.2
+1	nin-a-ni	nin	nin	N	nin-a-ni\dat	lady	sux	N1=nin.N3=ani.N5=ra	N1=STEM.N3=3-SG-H-POSS.N5=DAT-H	nin.ani.ra	N	lady
+
+# Q000953.3
+1	ur-{d}namma	ur-{d}namma	Urnammak	RN	ur-{d}namma	1	sux	N1=Urnammak	N1=NAME	Urnammak	RN	1st king of the 3rd dynasty of Urim
+
+# Q000953.4
+1	nita	nita	nita	N	nita	male	sux	N1=nita	N1=STEM	nita	N	male
+2	kalag-ga	kalag	kalag	V/i	kalag-ga	strong	sux	NV2=kalag.NV4='a	NV2=STEM.NV4=SUB	kalag.'a	V/i	strong
+
+# Q000953.5
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king
+2	urim₅{ki}-ma	urim₅{ki}	Urim	SN	urim₅{ki}-ma	1	sux	N1=Urim.N5=ak	N1=NAME.N5=GEN	Urim.ak	SN	1
+
+# Q000953.6
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king
+2	ki-en-gi	ki-en-gi	Kiengir	GN	ki-en-gi	1	sux	N1=Kiengir	N1=NAME	Kiengir	GN	1
+3	ki-uri-ke₄	ki-uri	Akkad	GN	ki-uri-ke₄	1	sux	N1=Akkad.N5=ak.N5=e	N1=NAME.N5=GEN.N5=ERG	Akkad.ak.e	GN	1
+
+# Q000953.7
+1	e₂-a-ni	e₂	e	N	e₂-a-ni\abs	house	sux	N1=e.N3=ani.N5=ø	N1=STEM.N3=3-SG-H-POSS.N5=ABS	e.ani.ø	N	house, temple
+
+# Q000953.8
+1	mu-na-du₃	du₃	du	V/t	mu-na-du₃	build	sux	V4=mu.V6=nn.V7=a.V11=n.V12=du.V14=ø	V4=VEN.V6=3-SG-H.V7=DAT.V11=3-SG-H-A.V12=STEM.V14=3-SG-P	mu.nn.a.n.du.ø	V/t	to build
+

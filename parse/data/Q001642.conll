@@ -1,0 +1,67 @@
+# project: etcsri 
+# textid: Q001642 
+# file: 00atf/ETCSRI_RIME3_2.atf 
+# langs: sux 
+# type: text 
+# xml:id: Q001642.U0 
+# bracketing_level: 0 
+# m/@k=genre : Royal Inscription 
+# m/@k=period : Ur III 
+
+# ID	WORD	BASE	CF	EPOS	FORM	GW	LANG	MORPH	MORPH2	NORM	POS	SENSE	HEAD	EDGE	CF_MWE	GW_MWE	SENSE_MWE	POS_MWE	EPOS_MWE
+
+# Q001642.1
+1	{d}bil₃-ga-meš₃	{d}bil₃-ga-meš₃	Gilgameš	DN	{d}bil₃-ga-meš₃	1	sux	N1=Gilgameš	N1=NAME	Gilgameš	DN	1	_	_	_	_	_	_	_
+
+# Q001642.2
+1	enegir₃{ki}	enegir₃{ki}	Enegir	SN	enegir₃{ki}	1	sux	N1=Enegir.N5=ak	N1=NAME.N5=GEN	Enegir.ak	SN	1	_	_	_	_	_	_	_
+
+# Q001642.3
+1	lugal-a-ni	lugal	lugal	N	lugal-a-ni\dat	king	sux	N1=lugal.N3=ani.N5=ra	N1=STEM.N3=3-SG-H-POSS.N5=DAT-H	lugal.ani.ra	N	king	_	_	_	_	_	_	_
+
+# Q001642.4
+1	ur-{d}namma	ur-{d}namma	Urnammak	RN	ur-{d}namma	1	sux	N1=Urnammak	N1=NAME	Urnammak	RN	1st king of the 3rd dynasty of Urim	_	_	_	_	_	_	_
+
+# Q001642.5
+1	nita	nita	nita	N	nita	male	sux	N1=nita	N1=STEM	nita	N	male	_	_	_	_	_	_	_
+2	kalag-ga	kalag	kalag	V/i	kalag-ga	strong	sux	NV2=kalag.NV4='a	NV2=STEM.NV4=SUB	kalag.'a	V/i	strong	_	_	_	_	_	_	_
+
+# Q001642.6
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king	_	_	_	_	_	_	_
+2	urim₅{ki}-ma	urim₅{ki}	Urim	SN	urim₅{ki}-ma	1	sux	N1=Urim.N5=ak	N1=NAME.N5=GEN	Urim.ak	SN	1	_	_	_	_	_	_	_
+
+# Q001642.7
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king	_	_	_	_	_	_	_
+2	ki-en-gi	ki-en-gi	Kiengir	GN	ki-en-gi	1	sux	N1=Kiengir	N1=NAME	Kiengir	GN	1	_	_	_	_	_	_	_
+3	ki-uri-ke₄	ki-uri	Akkad	GN	ki-uri-ke₄	1	sux	N1=Akkad.N5=ak.N5=e	N1=NAME.N5=GEN.N5=ERG	Akkad.ak.e	GN	1	_	_	_	_	_	_	_
+
+# Q001642.8
+1	ud	ud	ud	N	ud	sun	sux	N1=ud	N1=STEM	ud	N	day, sun	_	_	_	_	_	_	_
+2	e₂	e₂	e	N	e₂	house	sux	N1=e	N1=STEM	e	N	house, temple	_	_	_	_	_	_	_
+3	{d}nanna	{d}nanna	Nanna	DN	{d}nanna\gen\abs	1	sux	N1=Nanna.N5=ak.N5=ø	N1=NAME.N5=GEN.N5=ABS	Nanna.ak.ø	DN	1	_	_	_	_	_	_	_
+
+# Q001642.9
+1	mu-du₃-a	du₃	du	V/t	mu-du₃-a\l1	build	sux	V4=mu.V11=n.V12=du.V14=ø.V15='a.N5='a	V4=VEN.V11=3-SG-H-A.V12=STEM.V14=3-SG-P.V15=SUB.N5=L1	mu.n.du.ø.'a.'a	V/t	to build	_	_	_	_	_	_	_
+
+# Q001642.10
+1	nam-til₃-la-ni-še₃	nam-til₃	namtil	N	nam-til₃-la-ni-še₃	life	sux	N1=namtil.N3=ani.N5=še	N1=STEM.N3=3-SG-H-POSS.N5=TERM	namtil.ani.še	N	life	_	_	_	_	_	_	_
+
+# Q001642.11
+1	a	a	a	N	a\abs	water	sux	N1=a.N5=ø	N1=STEM.N5=ABS	a.ø	N	water	_	_	a ru	dedicate	dedicate	V/t	V/t
+2	mu-na-ru	ru	ru	V/t	mu-na-ru	cvve	sux	V4=mu.V6=nn.V7=a.V11=n.V12=ru.V14=ø	V4=VEN.V6=3-SG-H.V7=DAT.V11=3-SG-H-A.V12=STEM.V14=3-SG-P	mu.nn.a.n.ru.ø	V/t	(compound verb verbal element)	1	mwe	_	_	_	_	_
+
+# Q001642.12
+1	lu₂	lu₂	lu	N	lu₂	person	sux	N1=lu	N1=STEM	lu	N	person	_	_	_	_	_	_	_
+2	mu-sar-ra-ba	mu-sar-ra	musara	N	mu-sar-ra-ba\l2	inscription	sux	N1=musara.N3=bi.N5='a	N1=STEM.N3=3-SG-NH-POSS.N5=L2-NH	musara.bi.'a	N	inscription	_	_	_	_	_	_	_
+
+# Q001642.13
+1	šu	šu	šu	N	šu\abs	hand	sux	N1=šu.N5=ø	N1=STEM.N5=ABS	šu.ø	N	hand	_	_	šu ur	erase	to drag the hand on something or to wipe out something with the hand	V/t	V/t
+2	bi₂-ib₂-uru₁₂-a	uru₁₂	ur	V/t	bi₂-ib₂-uru₁₂-a\abs	drag	sux	V5=b.V10=i.V11=b.V12=ur.V14=e.V15='a.N5=ø	V5=3-NH.V10=L2.V11=3-SG-NH-P.V12=STEM.V14=3-SG-A.V15=SUB.N5=ABS	b.i.b.ur.e.'a.ø	V/t	to drag	1	mwe	_	_	_	_	_
+
+# Q001642.14
+1	{d}bil₃-ga-meš₃-e	{d}bil₃-ga-meš₃	Gilgameš	DN	{d}bil₃-ga-meš₃-e	1	sux	N1=Gilgameš.N5=e	N1=NAME.N5=ERG	Gilgameš.e	DN	1	_	_	_	_	_	_	_
+
+# Q001642.15
+1	nam	nam	nam	N	nam\abs	fate	sux	N1=nam.N5=ø	N1=STEM.N5=ABS	nam.ø	N	fate	_	_	nam kud	curse	to curse	V/t	V/t
+2	ha-ba-da-kud-e	kud	kud	V/t	ha-ba-da-kud-e	cut	sux	V1=ha.V5=ba.V6=nn.V8=da.V12=kud.V14=e	V1=MOD1.V5=MID.V6=3-SG-H.V8=COM.V12=STEM.V14=3-SG-A	ha.ba.nn.da.kud.e	V/t	cut	1	mwe	_	_	_	_	_
+

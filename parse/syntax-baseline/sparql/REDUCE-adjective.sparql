@@ -1,0 +1,35 @@
+# N0 ADJ(c) => N(c) <-amod- ADJ
+# structurally identical for relative clauses
+
+prefix : <http://oracc.museum.upenn.edu/etcsri/>
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# (1) default rule
+DELETE {
+	?noun conll:SHIFT ?adj.
+	?adj conll:SHIFT ?next.
+} INSERT {
+	?adj conll:REDUCE ?noun.
+	?adj conll:EDGE "amod".
+	?noun conll:SHIFT ?next.
+	?noun conll:CASE ?case.
+} WHERE {
+	?noun conll:POS ?pos FILTER(strends(?pos,"N")).	# a noun or proper noun
+	MINUS { ?noun conll:CASE [] }					# that is uninflected for case (! -- otherwise, it is an independent argument)
+	?noun conll:SHIFT ?adj.							# and precedes
+	?adj conll:NOM [] .								# a nominalized verb
+	OPTIONAL { ?adj conll:SHIFT ?next }
+	OPTIONAL { ?adj conll:CASE ?case. }
+};
+
+# (2) label adjustment for lu₂: relcl
+DELETE {
+	?adj conll:EDGE "amod".
+} INSERT {
+	?adj conll:EDGE "relcl".
+} WHERE {
+	?adj conll:REDUCE/conll:WORD "lu₂"; conll:EDGE "amod".
+};

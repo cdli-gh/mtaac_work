@@ -1,0 +1,25 @@
+# see extract-feats.sparql
+
+prefix : <http://oracc.museum.upenn.edu/etcsri/>
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+DELETE {
+	?a conll:NOM ?n.
+} WHERE {
+	?a conll:NOM ?n.
+};
+
+DELETE {
+	?a conll:POSS ?n3.
+} WHERE {
+	?a conll:POSS ?n3.
+};
+
+DELETE {
+	?a conll:CASE ?n5.
+} WHERE {
+	?a conll:CASE ?n5.
+};

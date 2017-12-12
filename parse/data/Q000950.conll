@@ -1,0 +1,49 @@
+# project: etcsri 
+# textid: Q000950 
+# file: 00atf/ETCSRI_RIME3_2.atf 
+# langs: sux 
+# type: text 
+# xml:id: Q000950.U0 
+# bracketing_level: 0 
+# m/@k=genre : Royal Inscription 
+# m/@k=period : Ur III 
+
+# ID	WORD	BASE	CF	EPOS	FORM	GW	LANG	MORPH	MORPH2	NORM	POS	SENSE	HEAD	EDGE	CF_MWE	GW_MWE	SENSE_MWE	POS_MWE	EPOS_MWE
+
+# Q000950.1
+1	{d}en-lil₂	{d}en-lil₂	Enlil	DN	{d}en-lil₂	1	sux	N1=Enlil	N1=NAME	Enlil	DN	1	_	_	_	_	_	_	_
+
+# Q000950.2
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king	_	_	_	_	_	_	_
+2	kur-kur-ra	kur-kur	kur	N	kur-kur-ra	mountain	sux	N1=kurkur.N5=ak	N1=STEM-RDP.N5=GEN	kurkur.ak	N	land	_	_	_	_	_	_	_
+
+# Q000950.3
+1	lugal-a-ni	lugal	lugal	N	lugal-a-ni\dat	king	sux	N1=lugal.N3=ani.N5=ra	N1=STEM.N3=3-SG-H-POSS.N5=DAT-H	lugal.ani.ra	N	king	_	_	_	_	_	_	_
+
+# Q000950.4
+1	ur-{d}namma	ur-{d}namma	Urnammak	RN	ur-{d}namma	1	sux	N1=Urnammak	N1=NAME	Urnammak	RN	1st king of the 3rd dynasty of Urim	_	_	_	_	_	_	_
+
+# Q000950.5
+1	nita	nita	nita	N	nita	male	sux	N1=nita	N1=STEM	nita	N	male	_	_	_	_	_	_	_
+2	kalag-ga	kalag	kalag	V/i	kalag-ga	strong	sux	NV2=kalag.NV4='a	NV2=STEM.NV4=SUB	kalag.'a	V/i	strong	_	_	_	_	_	_	_
+
+# Q000950.6
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king	_	_	_	_	_	_	_
+2	urim₅{ki}-ma	urim₅{ki}	Urim	SN	urim₅{ki}-ma	1	sux	N1=Urim.N5=ak	N1=NAME.N5=GEN	Urim.ak	SN	1	_	_	_	_	_	_	_
+
+# Q000950.7
+1	lugal	lugal	lugal	N	lugal	king	sux	N1=lugal	N1=STEM	lugal	N	king	_	_	_	_	_	_	_
+2	ki-en-gi	ki-en-gi	Kiengir	GN	ki-en-gi	1	sux	N1=Kiengir	N1=NAME	Kiengir	GN	1	_	_	_	_	_	_	_
+3	ki-uri-ke₄	ki-uri	Akkad	GN	ki-uri-ke₄	1	sux	N1=Akkad.N5=ak.N5=e	N1=NAME.N5=GEN.N5=ERG	Akkad.ak.e	GN	1	_	_	_	_	_	_	_
+
+# Q000950.8
+1	e₂-kur	e₂-kur	Ekur	TN	e₂-kur	1	sux	N1=Ekur	N1=NAME	Ekur	TN	1	_	_	_	_	_	_	_
+
+# Q000950.9
+1	e₂	e₂	e	N	e₂	house	sux	N1=e	N1=STEM	e	N	house, temple	_	_	_	_	_	_	_
+2	ki	ki	ki	N	ki\abs	place	sux	N1=ki.N5=ø	N1=STEM.N5=ABS	ki.ø	N	place	_	_	ki aŋ	love	to love	V/t	V/t
+3	aŋ₂-ŋa₂-ni	aŋ₂	aŋ	V/t	aŋ₂-ŋa₂-ni\abs	measure	sux	NV2=aŋ.N3=ani.N5=ø	NV2=STEM.N3=3-SG-H-POSS.N5=ABS	aŋ.ani.ø	V/t	measure	2	mwe	_	_	_	_	_
+
+# Q000950.10
+1	mu-na-du₃	du₃	du	V/t	mu-na-du₃	build	sux	V4=mu.V6=nn.V7=a.V11=n.V12=du.V14=ø	V4=VEN.V6=3-SG-H.V7=DAT.V11=3-SG-H-A.V12=STEM.V14=3-SG-P	mu.nn.a.n.du.ø	V/t	to build	_	_	_	_	_	_	_
+

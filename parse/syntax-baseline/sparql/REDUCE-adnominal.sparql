@@ -1,0 +1,33 @@
+# N0 N(case+)gen => N(case) <-gen- N
+# N0 N(case+)equ => N(case) <-equ- N
+
+### todo: equitive in ETSCRI 
+
+prefix : <http://oracc.museum.upenn.edu/etcsri/>
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+DELETE {
+	?adnominal conll:SHIFT ?next.
+	?noun conll:SHIFT ?adnominal.
+} INSERT {
+	?adnominal conll:REDUCE ?noun.
+	?adnominal conll:EDGE ?edge.
+	?noun conll:SHIFT ?next.
+	?noun conll:CASE ?headCase.
+} WHERE {
+	{ ?noun conll:POS ?pos. FILTER(strends(str(?pos),'N')) 				# a noun
+	} UNION {															# or
+	  ?noun conll:MORPH2 ?m. FILTER(strstarts(str(?m),'NV')) }			# nominalized verb
+	MINUS { ?noun conll:CASE [] }.										# without case
+	?noun conll:SHIFT ?adnominal.										# that precedes
+	?adnominal conll:CASE ?case FILTER(strstarts(str(?case),'GEN'))		# a genitive noun
+	BIND(substr(?case,0,4) AS ?edge)
+	OPTIONAL {															# copy head case to head
+		?adnominal conll:CASE ?case FILTER(strstarts(str(?case),'GEN.')).
+		BIND(substr(?case,5) AS ?headCase)
+	}
+	OPTIONAL { ?adnominal conll:SHIFT ?next. }
+}
