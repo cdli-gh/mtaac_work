@@ -31,5 +31,5 @@ DELETE {
 } INSERT {
 	?adj conll:EDGE "relcl".
 } WHERE {
-	?adj conll:REDUCE/conll:WORD "lu₂"; conll:EDGE "amod".
+	?adj conll:REDUCE/conll:WORD "lu2"; conll:EDGE "amod".
 };

@@ -83,8 +83,8 @@ DELETE {
 	  ?head conll:NOM []											# a nominalized verb
 	}
 	?dep conll:CASE ?case. 											# with case
-	MINUS {															# except when head is lu₂ and precedes a nominalized verb
-		?head conll:WORD 'lu₂'; conll:SHIFT+/conll:NOM [].
+	MINUS {															# except when head is lu2 and precedes a nominalized verb
+		?head conll:WORD 'lu2'; conll:SHIFT+/conll:NOM [].
 	}
 	OPTIONAL { ?dep conll:SHIFT ?next. }
 };
@@ -100,7 +100,7 @@ DELETE {
 	?appos conll:EDGE "appos"; conll:REDUCE ?parent.
 	?parent conll:EDGE "appos"; conll:REDUCE ?grandparent.
 	MINUS { ?appos conll:REDUCE/conll:BASE "lugal". 								# add other relational nouns
-		MINUS { ?appos conll:BASE ?aBase FILTER(?aBase="lugal" || ?aBase="lu₂") } 	# except in list of titles
+		MINUS { ?appos conll:BASE ?aBase FILTER(?aBase="lugal" || ?aBase="lu2") } 	# except in list of titles
 	}
 };
 

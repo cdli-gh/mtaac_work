@@ -15,7 +15,7 @@ DELETE {
 } WHERE {
 	{ ?noun conll:POS ?pos FILTER(strends(str(?pos),'N')). }			# a noun
 	UNION 
-	{ ?noun conll:NOM []. MINUS { ?noun ^conll:SHIFT+/conll:BASE "lu₂" } }	# or nominalized noun (if not resolvable as a relative clause)
+	{ ?noun conll:NOM []. MINUS { ?noun ^conll:SHIFT+/conll:BASE "lu2" } }	# or nominalized noun (if not resolvable as a relative clause)
 	?noun conll:CASE ?case. 											# with case
 	?noun conll:SHIFT ?verb.											# that precedes
 	?verb conll:POS ?vPos FILTER(strstarts(str(?vPos),'V'))				# a verb
